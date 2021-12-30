@@ -1,0 +1,81 @@
+#chat {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 33%;
+    height: 33%;
+    padding: 13px;
+    border-radius: 10px;
+    transition: background-color 0.15s;
+}
+
+#chat:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+#chat:hover#chat button {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+#chat div:first-child {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#chat button {
+    width: 40px;
+    font-size: 18px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    transition: 
+        background-color 0.2s,
+        color 0.2s;
+}
+
+#chat button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white !important;
+}
+
+#chat ul {
+    list-style: none;
+}
+
+#chat ul li .yellow {
+    color: yellow;
+}
+
+#chat ul li .blue {
+    color: cyan;
+}
+
+#chat ul li .noticeBracket {
+    color: gray;
+}
+
+#chat ul li .notice {
+    color: rgb(100, 100, 255);
+}
+
+#chat ul li .timer {
+    color: rgb(110, 255, 110);
+}
+
+#chat ul li {
+    padding: 8px;
+    font-size: 18px;
+    /* text-shadow: 2px 2px 3px black; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#chat ul li span {
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}

@@ -1,0 +1,35 @@
+@import url(playerList.css);
+@import url(chat.css);
+@import url(timer.css);
+@import url(menu.css);
+
+:root {
+    --dark: rgb(55, 55, 55);
+    --dark2: rgb(45, 45, 45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+body {
+    background-color: rgb(90, 52, 52);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+/* .shadow {
+    box-shadow: 0px 0px 2.5px 0px black;
+} */
+
+#timerAndMenu {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;  
+    gap: 30px;
+    left: 33px;
+    bottom: 33px;
+}

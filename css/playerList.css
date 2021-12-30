@@ -1,0 +1,63 @@
+#playerList {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 325px;
+    text-align: center;
+}
+
+#playerList ul {
+    list-style: none;
+}
+
+#playerList ul li {
+    background-color: var(--dark);
+    margin-bottom: 12px;
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+#playerList ul .playerListHeading {
+    font-weight: bold;
+    font-size: 37px;
+    letter-spacing: 2px;
+}
+
+#playerList ul .whitelisted {
+    background-image: linear-gradient(90deg, white, transparent, transparent, transparent);
+}
+
+#playerList ul .blacklisted {
+    background-image: linear-gradient(90deg, black, transparent, transparent, transparent);
+}
+
+#playerList ul .pending {
+    background-image: linear-gradient(90deg, gold, transparent, transparent, transparent);
+}
+
+#playerList ul .moderator {
+    background-image: linear-gradient(90deg, purple, transparent, transparent, transparent);
+    transition: background-color 0.2s;
+}
+
+#playerList ul .bot::before {
+    content: "[BOT] ";
+    font-weight: bold;
+}
+
+#playerList ul .player {
+    position: relative;
+    font-size: 22px;
+    font-weight: 450;
+    letter-spacing: 1px;
+    /* text-shadow: 2px 2px 3px black; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#playerList ul .player:hover {
+    background-color: var(--dark2);
+}
