@@ -4,8 +4,8 @@ function menus() {
     const openMenuButtons = document.querySelectorAll("[data-menu-open]");
     const closeMenuButtons = document.querySelectorAll("[data-menu-close-button]");
 
-    openMenuButtons.forEach(function(menuButton) {
-        menuButton.addEventListener("click", function(event) {
+    openMenuButtons.forEach(function(openMenuButton) {
+        openMenuButton.addEventListener("click", function(event) {
             activateMenu(event.target.getAttribute("data-menu-open"), true);
         });
     });
