@@ -20,8 +20,8 @@ export function timer() {
     );
 
     updateTimer();
-    
-    async function updateTimer() {
+ 
+    function updateTimer() {
         const now = new Date();
         const sinceStarted = new Date(now.getTime() - runStarted.getTime());
 
