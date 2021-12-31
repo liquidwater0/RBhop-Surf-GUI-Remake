@@ -7,7 +7,7 @@ export function stylesMenu() {
     styleButtons.forEach(function(styleButton) { 
         styleButton.addEventListener("click", function(event) {
             changeStyle(styleButton.getAttribute("data-style"));
-            activateMenu(event.target.parentElement.parentElement.parentElement, false);
+            activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
         });
     });
 
