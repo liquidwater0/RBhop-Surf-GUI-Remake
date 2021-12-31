@@ -1,7 +1,7 @@
 @import url(playerList.css);
 @import url(chat.css);
 @import url(timer.css);
-@import url(menu.css);
+@import url(menus.css);
 
 :root {
     --dark: rgb(55, 55, 55);
@@ -24,6 +24,23 @@ body {
 /* .shadow {
     box-shadow: 0px 0px 2.5px 0px black;
 } */
+
+#mainMenuButton {
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 20px 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#mainMenuButton:hover {
+    background-color: var(--dark2);
+}
 
 #timerAndMenu {
     position: absolute;
