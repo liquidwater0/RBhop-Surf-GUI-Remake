@@ -1,28 +1,25 @@
-export function menu() {
-    const menuButton = document.getElementById("menuButton");
-    const closeMenuButton = document.getElementById("closeMenuButton");
-    const menu = document.getElementById("menu");
+export { menus, activateMenu }
 
-    menuButton.addEventListener("click", activateMenu);
-    closeMenuButton.addEventListener("click", closeMenu);
+function menus() {
+    const openMenuButtons = document.querySelectorAll("[data-menu-open]");
+    const closeMenuButtons = document.querySelectorAll("[data-menu-close-button]");
 
-    document.addEventListener("keydown", function(event) {
-        if (event.key == "m" || event.key == "M") activateMenu();
+    openMenuButtons.forEach(function(menuButton) {
+        menuButton.addEventListener("click", function(event) {
+            activateMenu(event.target.getAttribute("data-menu-open"), true);
+        });
     });
 
-    let menuOpen = false;
+    closeMenuButtons.forEach(function(closeMenuButton) {
+        closeMenuButton.addEventListener("click", function(event) { 
+            activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
+        });
+    });
+}
 
-    function activateMenu() {
-        menuOpen = !menuOpen;
-        menuOpen ? openMenu() : closeMenu();
-    }
+function activateMenu(menu, isOpen) {
+    const allMenus = document.querySelectorAll("[data-menu]");
+    const currentMenu = document.querySelector(`[data-menu='${menu}']`);
 
-    function openMenu() {
-        menu.style.transform = "translateY(0%)"
-    }
-
-    function closeMenu() {
-        menuOpen = false;
-        menu.style.transform = "translateY(100%)"
-    }
+    isOpen ? currentMenu.style.transform = "translateY(0%)" : allMenus.forEach(function(menu) { menu.style.transform = "translateY(100%)" });
 }
