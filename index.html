@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <div id="playerList">
@@ -55,18 +55,18 @@
         </div>
       </div>
 
-      <button class="shadow" id="menuButton">Menu (Press M)</button>
+      <button class="shadow" id="mainMenuButton">Menu (Press M)</button>
     </div>
 
-    <div id="menu">
-      <div class="shadow" id="menuContainer">
-        <div id="topBar">
-          <div id="menuHeading"><h3>Menu</h3></div>
-          <button id="closeMenuButton">&#10006</button>
+    <div data-menu="mainMenu" class="menu">
+      <div class="menuContainer shadow">
+        <div class="topBar">
+          <h3 class="menuHeading">Menu</h3>
+          <button data-menu-close-button>&#10006</button>
         </div>
 
         <ul>
-          <li>Change Style (/style)</li>
+          <li data-menu-open="styles">Change Style (/style)</li>
           <li>World Records (/wr)</li>
           <li>Nominate a Map (/nominate)</li>
           <li>Rock the Vote (/rtv)</li>
@@ -79,6 +79,24 @@
       </div>
     </div>
 
-    <script type="module" src="js/index.js"></script>
+    <div data-menu="styles" class="menu">
+      <div class="menuContainer shadow">
+        <div class="topBar">
+          <h3 class="menuHeading">Styles</h3>
+          <button data-menu-close-button>&#10006</button>
+        </div>
+
+        <ul>
+          <li data-style="Autohop">Autohop</li>
+          <li data-style="A-Only">A-Only</li>
+          <li data-style="Backwards">Backwards</li>
+          <li data-style="Half-Sideways">Half Sideways</li>
+          <li data-style="Sideways">Sideways</li>
+          <li data-style="W-Only">W-Only</li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
