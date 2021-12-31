@@ -8,4 +8,4 @@ menus();
 mainMenu();
 stylesMenu();
 
-timer();//
+timer();
