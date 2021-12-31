@@ -4,8 +4,8 @@ export function timer() {
 
     const personalBest = {
         minutes: "00",
-        seconds: "10",
-        milliseconds: "465"
+        seconds: "7",
+        milliseconds: "106"
     }
 
     const runStarted = new Date();
@@ -21,14 +21,22 @@ export function timer() {
 
     updateTimer();
     
-    function updateTimer() {
+    async function updateTimer() {
         const now = new Date();
         const sinceStarted = new Date(now.getTime() - runStarted.getTime());
-       
+
+        // const timerBarPercentage = now / (runStarted.getTime() * now.getTime());
+        // console.log(timerBarPercentage);
+        // console.log(`
+        //     Started: ${personalBestDate.getTime() / sinceStarted.getTime()}
+        //     Now Time: ${now.getTime()}
+        //     PB Time: ${personalBestDate.getTime()}
+        // `);
+
         timeElement.textContent = `Time: ${sinceStarted.getMinutes()}:${sinceStarted.getSeconds()}.${sinceStarted.getMilliseconds()}`;
         personalBestElement.textContent = `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
 
-        if (now.toLocaleString() == personalBestDate.toLocaleString()) return;
+        if (Date.parse(now) == Date.parse(personalBestDate)) return;
 
         window.requestAnimationFrame(updateTimer);
     }
