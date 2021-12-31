@@ -21,5 +21,6 @@ function activateMenu(menu, isOpen) {
     const allMenus = document.querySelectorAll("[data-menu]");
     const currentMenu = document.querySelector(`[data-menu='${menu}']`);
 
-    isOpen ? currentMenu.style.transform = "translateY(0%)" : allMenus.forEach(function(menu) { menu.style.transform = "translateY(100%)" });
+    allMenus.forEach(function(menu) { menu.style.transform = "translateY(100%)" });
+    isOpen ? currentMenu.style.transform = "translateY(0%)" : currentMenu.style.transform = "translateY(100%)";
 }
