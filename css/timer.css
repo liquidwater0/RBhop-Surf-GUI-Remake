@@ -49,13 +49,12 @@
     overflow: hidden;
 }
 
-#timer #speed::before {
+#timer #speedBar {
     position: absolute;
     content: "";
     top: 0px;
     left: 0px;
     bottom: 0px;
-    width: 75%;
     border-radius: 10px;
     background-color: rgb(25, 25, 25);
     z-index: -1;
