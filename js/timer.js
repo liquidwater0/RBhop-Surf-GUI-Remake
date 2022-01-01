@@ -1,11 +1,12 @@
 export function timer() {
-    const timeElement = document.querySelector("#time > :first-child");
-    const personalBestElement = document.querySelector("#time > :last-child");
+    const timeElement = document.querySelector("#time > p:first-of-type");
+    const personalBestElement = document.querySelector("#time > p:last-of-type");
+    const timerProgressBar = document.getElementById("progressBar");
 
     const personalBest = {
         minutes: "00",
-        seconds: "7",
-        milliseconds: "338"
+        seconds: "10",
+        milliseconds: "120"
     }
 
     function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
@@ -40,7 +41,9 @@ export function timer() {
         timeElement.textContent = `Time: ${currentMinutes}:${currentSeconds}.${currentMilliseconds}`;
         personalBestElement.textContent = `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
 
-        if (timeElement == personalBestMS) return; //fix somehow
+        document.documentElement.style.setProperty("--personalBestMS", `${personalBestMS}ms`);
+        timerProgressBar.style.backgroundColor = (sinceStarted > personalBestMS) ? "red" : "rgb(0, 255, 0)"
+        timerProgressBar.style.width = "100%";
 
         window.requestAnimationFrame(updateTimer);
     }
