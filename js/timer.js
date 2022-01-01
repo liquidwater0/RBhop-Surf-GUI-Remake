@@ -5,38 +5,42 @@ export function timer() {
     const personalBest = {
         minutes: "00",
         seconds: "7",
-        milliseconds: "106"
+        milliseconds: "338"
+    }
+
+    function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
+        const minutesMS = Number(personalBest.minutes * 1000 * 60);
+        const secondsMS = Number(personalBest.seconds * 1000);
+        const milliseconds = Number(personalBest.milliseconds);
+
+        return minutesMS + secondsMS + milliseconds;
+    }
+
+    function convertFromMS(number) {
+        return {
+            minutes: (number / 1000) / 60,
+            seconds: (number / 1000) % 60,
+            milliseconds: number % 1000
+        }
     }
 
     const runStarted = new Date();
-    const personalBestDate = new Date(
-        runStarted.getFullYear(),
-        runStarted.getMonth(), 
-        runStarted.getDate(),
-        runStarted.getHours(),
-        runStarted.getMinutes() + Number(personalBest.minutes),
-        runStarted.getSeconds() + Number(personalBest.seconds),
-        runStarted.getMilliseconds() + Number(personalBest.milliseconds)
-    );
+    const personalBestMS = convertToMS(personalBest);
 
     updateTimer();
- 
+
     function updateTimer() {
         const now = new Date();
-        const sinceStarted = new Date(now.getTime() - runStarted.getTime());
+        const sinceStarted = now.getTime() - runStarted.getTime();
 
-        // const timerBarPercentage = now / (runStarted.getTime() * now.getTime());
-        // console.log(timerBarPercentage);
-        // console.log(`
-        //     Started: ${personalBestDate.getTime() / sinceStarted.getTime()}
-        //     Now Time: ${now.getTime()}
-        //     PB Time: ${personalBestDate.getTime()}
-        // `);
+        const currentMinutes = String(parseInt(convertFromMS(sinceStarted).minutes)).padStart(2, "0");
+        const currentSeconds = String(parseInt(convertFromMS(sinceStarted).seconds)).padStart(2, "0");
+        const currentMilliseconds = String(parseInt(convertFromMS(sinceStarted).milliseconds)).padStart(3, "0");
 
-        timeElement.textContent = `Time: ${sinceStarted.getMinutes()}:${sinceStarted.getSeconds()}.${sinceStarted.getMilliseconds()}`;
+        timeElement.textContent = `Time: ${currentMinutes}:${currentSeconds}.${currentMilliseconds}`;
         personalBestElement.textContent = `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
 
-        if (Date.parse(now) == Date.parse(personalBestDate)) return;
+        if (timeElement == personalBestMS) return; //fix somehow
 
         window.requestAnimationFrame(updateTimer);
     }
