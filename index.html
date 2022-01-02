@@ -14,7 +14,7 @@
   <body>
     <div id="playerList">
       <ul>
-        <li class="shadow playerListHeading">Player List (4)</li>
+        <li class="shadow player-list-heading">Player List (4)</li>
         <li class="shadow player blacklisted">Player 1</li>
         <li class="shadow player moderator">Player 2</li>
         <li class="shadow player whitelisted">Player 3sdfdsgfdfgdfhgdfgret4353454h34h555436h45564h5454h645546h5</li>
@@ -34,12 +34,12 @@
         <li><span class="yellow">Player 1:</span> add maps</li>
         <li><span class="blue">Player 2:</span> no</li>
         <li><span class="yellow">Player 1:</span> please add maps</li>
-        <li><span class="noticeBracket">[</span><span class="notice">Notice</span><span class="noticeBracket">]</span> Notice Message</li>
-        <li><span class="noticeBracket">[</span><span class="timer">Timer</span><span class="noticeBracket">]</span> Player 1 placed #10/1000000 in the style Autohop with a time of 42:64.057</li>
+        <li><span class="notice-bracket">[</span><span class="notice">Notice</span><span class="notice-bracket">]</span> Notice Message</li>
+        <li><span class="notice-bracket">[</span><span class="timer">Timer</span><span class="notice-bracket">]</span> Player 1 placed #10/1000000 in the style Autohop with a time of 42:64.057</li>
       </ul>
     </div>
 
-    <div id="timerAndMenu">
+    <div id="bottomSection">
       <div class="shadow" id="timer">
         <div id="style">
           <p>Autohop</p>
@@ -57,14 +57,17 @@
         </div>
       </div>
 
-      <button class="shadow" id="mainMenuButton">Menu (Press M)</button>
+      <div class="buttons-div">
+        <button class="shadow" id="shopMenuButton">Shop (Press P)</button>
+        <button class="shadow" id="mainMenuButton">Menu (Press M)</button>
+      </div>
     </div>
 
     <!-- Beginning of Menus -->
     <div data-menu="mainMenu" class="menu">
-      <div class="menuContainer shadow">
-        <div class="topBar">
-          <h3 class="menuHeading">Menu</h3>
+      <div class="menu-container shadow">
+        <div class="top-bar">
+          <h3 class="menu-heading">Menu</h3>
           <button data-menu-close-button>&#10006</button>
         </div>
 
@@ -83,9 +86,9 @@
     </div>
 
     <div data-menu="styles" class="menu">
-      <div class="menuContainer shadow">
-        <div class="topBar">
-          <h3 class="menuHeading">Styles</h3>
+      <div class="menu-container shadow">
+        <div class="top-bar">
+          <h3 class="menu-heading">Styles</h3>
           <button data-menu-close-button>&#10006</button>
         </div>
 
