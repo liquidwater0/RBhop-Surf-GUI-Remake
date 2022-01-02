@@ -25,7 +25,22 @@ body {
     box-shadow: 0px 0px 2.5px 0px black;
 } */
 
-#mainMenuButton {
+#bottomSection {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;  
+    gap: 30px;
+    left: 33px;
+    bottom: 33px;
+}
+
+#bottomSection .buttons-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#bottomSection .buttons-div button {
     background-color: var(--dark);
     color: white;
     border: none;
@@ -38,15 +53,6 @@ body {
     transition: background-color 0.2s;
 }
 
-#mainMenuButton:hover {
+#bottomSection .buttons-div button:hover {
     background-color: var(--dark2);
-}
-
-#timerAndMenu {
-    position: absolute;
-    display: flex;
-    align-items: flex-end;  
-    gap: 30px;
-    left: 33px;
-    bottom: 33px;
 }
