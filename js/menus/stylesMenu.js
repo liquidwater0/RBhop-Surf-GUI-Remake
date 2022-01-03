@@ -8,6 +8,5 @@ export function stylesMenu() {
 
     function changeStyle(event) {
         styleElement.textContent = event.target.getAttribute("data-style");
-        activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
     }
 }
