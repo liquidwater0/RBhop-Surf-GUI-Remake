@@ -1,3 +1,5 @@
+import { restart } from "../timer.js";
+
 export function stylesMenu() {
     const styleButtons = document.querySelectorAll("[data-style]");
     const styleElement = document.querySelector("#style > p");
@@ -6,5 +8,6 @@ export function stylesMenu() {
 
     function changeStyle(event) {
         styleElement.textContent = event.target.getAttribute("data-style");
+        restart();
     }
 }
