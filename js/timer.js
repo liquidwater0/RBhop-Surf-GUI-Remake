@@ -5,11 +5,12 @@ document.addEventListener("keypress", function(event) {
 });
 
 let runStarted = new Date();
+const timerProgressBar = document.getElementById("progressBar");
 
 function timer() {
     const timeElement = document.querySelector("#time > p:first-of-type");
     const personalBestElement = document.querySelector("#time > p:last-of-type");
-    const timerProgressBar = document.getElementById("progressBar");
+    
 
     const personalBest = {
         minutes: "00",
