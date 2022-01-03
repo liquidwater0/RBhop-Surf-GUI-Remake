@@ -38,9 +38,7 @@
     border-radius: 10px;
     z-index: -1;
     background-color: rgb(0, 200, 0);
-    transition: 
-        width var(--personalBestMS) linear,
-        background-color 125ms;
+    transition: background-color 125ms;
 }
 
 #timer #speed {
