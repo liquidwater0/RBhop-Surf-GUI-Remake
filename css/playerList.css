@@ -2,62 +2,68 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 325px;
+    width: 350px;
+    border-radius: 8px;
+    overflow: hidden;
     text-align: center;
+    background-color: var(--dark3);
 }
 
 #playerList ul {
     list-style: none;
 }
 
-#playerList ul li {
-    background-color: var(--dark);
-    margin-bottom: 12px;
-    border-radius: 15px;
-    padding: 10px 20px;
-}
-
-#playerList ul .player-list-heading {
-    font-weight: bold;
-    font-size: 37px;
-    letter-spacing: 2px;
-}
-
-#playerList ul .whitelisted {
-    background-image: linear-gradient(90deg, white, transparent, transparent, transparent);
-}
-
-#playerList ul .blacklisted {
-    background-image: linear-gradient(90deg, black, transparent, transparent, transparent);
-}
-
-#playerList ul .pending {
-    background-image: linear-gradient(90deg, gold, transparent, transparent, transparent);
-}
-
-#playerList ul .moderator {
-    background-image: linear-gradient(90deg, purple, transparent, transparent, transparent);
-    transition: background-color 0.2s;
-}
-
-#playerList ul .bot::before {
-    content: "[BOT] ";
+#playerList .player-list-heading {
+    background-color: var(--dark2);
+    padding: 15px 0px;
+    font-size: 30px;
     font-weight: bold;
 }
 
-#playerList ul .player {
+#playerList .player {
     position: relative;
-    font-size: 22px;
-    font-weight: 450;
-    letter-spacing: 1px;
-    /* text-shadow: 2px 2px 3px black; */
+    color: rgb(220, 220, 220);
+    font-size: 25px;
+    letter-spacing: 1.15px;
+    font-weight: bold;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    padding: 10px 40px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-#playerList ul .player:hover {
+#playerList .player:hover {
     background-color: var(--dark2);
+}
+
+#playerList .player::before {
+    content: "";
+    position: absolute;
+    background-color: var(--moderationStatus, rgb(100, 100, 100));
+    width: 5px;
+    height: 15px;
+    border-radius: 50px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#playerList .player.whitelisted { --moderationStatus: white }
+#playerList .player.blacklisted { --moderationStatus: black }
+#playerList .player.moderator { --moderationStatus: purple }
+#playerList .player.pending { --moderationStatus: gold }
+#playerList .player.bot::before {
+    content: "B";
+    position: absolute;
+    background-color: var(--moderationStatus, rgb(100, 100, 100));
+    width: 15px;
+    aspect-ratio: 1 / 1;
+    font-size: 12px;
+    border-radius: 50px;
+    padding: 3px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
 }
