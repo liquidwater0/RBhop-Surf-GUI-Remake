@@ -1,3 +1,5 @@
+import { paused } from "./timer.js";
+
 export function speed() {
     const speedElement = document.querySelector("#speed > p:first-of-type");
     const speedBar = document.getElementById("speedBar");
@@ -8,6 +10,8 @@ export function speed() {
     let speed = 0;
 
     function increaseSpeed() {
+        if (paused) return;
+
         speed++;
 
         speedElement.textContent = `${speed.toFixed(2)} u/s`;
