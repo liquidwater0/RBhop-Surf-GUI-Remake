@@ -1,4 +1,12 @@
-export function timer() {
+export { timer, restart }
+
+document.addEventListener("keypress", function(event) { 
+    if (event.key == "r" || event.key == "R") restart();
+});
+
+let runStarted = new Date();
+
+function timer() {
     const timeElement = document.querySelector("#time > p:first-of-type");
     const personalBestElement = document.querySelector("#time > p:last-of-type");
     const timerProgressBar = document.getElementById("progressBar");
@@ -25,7 +33,6 @@ export function timer() {
         }
     }
 
-    const runStarted = new Date();
     const personalBestMS = convertToMS(personalBest);
 
     updateTimer();
@@ -47,4 +54,10 @@ export function timer() {
 
         window.requestAnimationFrame(updateTimer);
     }
+}
+
+function restart() {
+    runStarted = new Date();
+    document.documentElement.style.removeProperty("--personalBestMS");
+    timerProgressBar.style.width = "0%";
 }
