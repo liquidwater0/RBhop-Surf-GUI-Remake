@@ -56,3 +56,9 @@ body {
 #bottomSection .buttons-div button:hover {
     background-color: var(--dark2);
 }
+
+#bottomSection .buttons-div button span {
+    background-color: rgb(75, 75, 75);
+    padding: 10px;
+    border-radius: 5px;
+}
