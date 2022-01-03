@@ -1,64 +1,64 @@
-export { timer, restart }
+export { timer, playPause, restart }
 
 document.addEventListener("keypress", function(event) { 
+    if (event.key == " ") playPause();
     if (event.key == "r" || event.key == "R") restart();
 });
 
-let runStarted = new Date();
+const timeElement = document.querySelector("#time > p:first-of-type");
+const personalBestElement = document.querySelector("#time > p:last-of-type");
 const timerProgressBar = document.getElementById("progressBar");
 
-function timer() {
-    const timeElement = document.querySelector("#time > p:first-of-type");
-    const personalBestElement = document.querySelector("#time > p:last-of-type");
-    
+const personalBest = {
+    minutes: "00",
+    seconds: "06",
+    milliseconds: "302"
+}
 
-    const personalBest = {
-        minutes: "00",
-        seconds: "10",
-        milliseconds: "120"
-    }
+let paused = false;
 
-    function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
-        const minutesMS = Number(personalBest.minutes * 1000 * 60);
-        const secondsMS = Number(personalBest.seconds * 1000);
-        const milliseconds = Number(personalBest.milliseconds);
+let sinceStarted = 0;
+const personalBestMS = convertToMS(personalBest);
 
-        return minutesMS + secondsMS + milliseconds;
-    }
+function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
+    const minutesMS = Number(personalBest.minutes * 1000 * 60);
+    const secondsMS = Number(personalBest.seconds * 1000);
+    const milliseconds = Number(personalBest.milliseconds);
 
-    function convertFromMS(number) {
-        return {
-            minutes: (number / 1000) / 60,
-            seconds: (number / 1000) % 60,
-            milliseconds: number % 1000
-        }
-    }
+    return minutesMS + secondsMS + milliseconds;
+}
 
-    const personalBestMS = convertToMS(personalBest);
-
-    updateTimer();
-
-    function updateTimer() {
-        const now = new Date();
-        const sinceStarted = now.getTime() - runStarted.getTime();
-
-        const currentMinutes = String(parseInt(convertFromMS(sinceStarted).minutes)).padStart(2, "0");
-        const currentSeconds = String(parseInt(convertFromMS(sinceStarted).seconds)).padStart(2, "0");
-        const currentMilliseconds = String(parseInt(convertFromMS(sinceStarted).milliseconds)).padStart(3, "0");
-
-        timeElement.textContent = `Time: ${currentMinutes}:${currentSeconds}.${currentMilliseconds}`;
-        personalBestElement.textContent = `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
-
-        document.documentElement.style.setProperty("--personalBestMS", `${personalBestMS}ms`);
-        timerProgressBar.style.backgroundColor = (sinceStarted > personalBestMS) ? "red" : "rgb(0, 255, 0)"
-        timerProgressBar.style.width = "100%";
-
-        window.requestAnimationFrame(updateTimer);
+function convertFromMS(number) {
+    return {
+        minutes: String(parseInt((number / 1000) / 60)).padStart(2, "0"),
+        seconds: String(parseInt((number / 1000) % 60)).padStart(2, "0"),
+        milliseconds: String(parseInt(number % 1000)).padStart(3, "0")
     }
 }
 
+function timer() {
+    setInterval(updateTimer, 1);
+
+    function updateTimer() {
+        sinceStarted = paused ? sinceStarted : (sinceStarted + 1 * 4.1);
+        
+        const converted = convertFromMS(sinceStarted);
+        
+        timeElement.textContent = `Time: ${converted.minutes}:${converted.seconds}.${converted.milliseconds}`;
+        personalBestElement.textContent = `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
+        
+        const timePercentage = `${(sinceStarted / personalBestMS).toFixed(2) * 100}%`;
+        
+        timerProgressBar.style.width = timePercentage;
+        timerProgressBar.style.backgroundColor = (sinceStarted > personalBestMS) ? "red" : "rgb(0, 255, 0)";
+    }
+}
+
+function playPause() {
+    paused = !paused;
+}
+
 function restart() {
-    runStarted = new Date();
-    document.documentElement.style.removeProperty("--personalBestMS");
+    sinceStarted = 0;
     timerProgressBar.style.width = "0%";
 }
