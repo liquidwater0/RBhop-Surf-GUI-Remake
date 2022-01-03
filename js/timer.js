@@ -1,4 +1,4 @@
-export { timer, playPause, restart }
+export { timer, playPause, restart, paused }
 
 document.addEventListener("keypress", function(event) { 
     if (event.key == " ") playPause();
