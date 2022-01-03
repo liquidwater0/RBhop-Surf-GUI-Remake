@@ -3,6 +3,7 @@ export { menus, activateMenu }
 function menus() {
     const openMenuButtons = document.querySelectorAll("[data-menu-open]");
     const closeMenuButtons = document.querySelectorAll("[data-menu-close-button]");
+    const menuButtons = document.querySelectorAll("[data-menu] ul li:not([data-menu-open])");
 
     let isOpen = false;
 
@@ -18,6 +19,12 @@ function menus() {
 
     closeMenuButtons.forEach(function(closeMenuButton) {
         closeMenuButton.addEventListener("click", function(event) { 
+            activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
+        });
+    });
+
+    menuButtons.forEach(function(menuButton) {
+        menuButton.addEventListener("click", function(event) { 
             activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
         });
     });
