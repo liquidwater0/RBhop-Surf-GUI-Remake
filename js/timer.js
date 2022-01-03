@@ -18,6 +18,8 @@ const personalBest = {
 let paused = false;
 
 let sinceStarted = 0;
+let time = new Date();
+
 const personalBestMS = convertToMS(personalBest);
 
 function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
@@ -37,10 +39,11 @@ function convertFromMS(number) {
 }
 
 function timer() {
-    setInterval(updateTimer, 1);
+    updateTimer();
 
-    function updateTimer() {
-        sinceStarted = paused ? sinceStarted : (sinceStarted + 1 * 4.1);
+    function updateTimer() { //thanks Cool Doggo#3733
+        sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
+        time = new Date();
         
         const converted = convertFromMS(sinceStarted);
         
@@ -51,6 +54,8 @@ function timer() {
         
         timerProgressBar.style.width = timePercentage;
         timerProgressBar.style.backgroundColor = (sinceStarted > personalBestMS) ? "red" : "rgb(0, 255, 0)";
+        
+        window.requestAnimationFrame(updateTimer);
     }
 }
 
