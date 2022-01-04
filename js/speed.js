@@ -16,8 +16,6 @@ export function speed() {
 
     function increaseSpeed() {
         if (paused) return;
-        window.cancelAnimationFrame(decreaseSpeed);
-
         speed++;
 
         updateSpeed(); 
@@ -26,7 +24,7 @@ export function speed() {
     function decreaseSpeed() {
         if (speed <= 0) return;
         speed--;
-        
+
         updateSpeed();
 
         window.requestAnimationFrame(decreaseSpeed);
