@@ -1,7 +1,9 @@
 export { timer, restart, paused }
 
+let paused = false;
+
 document.addEventListener("keypress", function(event) { 
-    if (event.key == " ") switchPauseState();
+    if (event.key == " ") paused = !paused;
     if (event.key == "r" || event.key == "R") restart();
     if (event.key == "Enter") completeRun();
 });
@@ -9,8 +11,6 @@ document.addEventListener("keypress", function(event) {
 const timeElement = document.querySelector("#time > p:first-of-type");
 const personalBestElement = document.querySelector("#time > p:last-of-type");
 const timerProgressBar = document.getElementById("progressBar");
-
-let paused = false;
 
 let sinceStarted = 0;
 let time = new Date();
@@ -50,15 +50,7 @@ function timer() {
     }
 }
 
-function pause() {
-    paused = true;
-}
-
-function switchPauseState() {
-    paused = !paused;
-}
-
-function restart() {
+function restart() { 
     sinceStarted = 0;
     timerProgressBar.style.width = "0%";
 }
@@ -66,5 +58,5 @@ function restart() {
 function completeRun() {
     if (personalBest == null || sinceStarted < personalBest || personalBest == 0) personalBest = sinceStarted;
 
-    pause();
+    paused = true;
 }
