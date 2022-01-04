@@ -9,7 +9,7 @@
     --dark3: rgba(45, 45, 45, 0.75);
 }
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;  
