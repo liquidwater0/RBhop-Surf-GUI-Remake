@@ -45,7 +45,7 @@
     width: 5px;
     height: 15px;
     border-radius: 50px;
-    left: 12px;
+    left: 19px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -56,14 +56,10 @@
 #playerList .player.pending { --moderationStatus: gold }
 #playerList .player.bot::before {
     content: "B";
-    position: absolute;
-    background-color: var(--moderationStatus, rgb(100, 100, 100));
-    width: 15px;
-    aspect-ratio: 1 / 1;
-    font-size: 12px;
-    border-radius: 50px;
-    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13.5px;
+    padding: 11px;
     left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
 }
