@@ -12,24 +12,10 @@ const timerProgressBar = document.getElementById("progressBar");
 
 let paused = false;
 
-let personalBest = {
-    minutes: null,
-    seconds: null,
-    milliseconds: null
-}
-
-let personalBestMS = null;
-
 let sinceStarted = 0;
 let time = new Date();
 
-function convertToMS(personalBest) { //function is not necessary but i want it for easy changing of the PB without needing to use a millisecond calculator
-    const minutesMS = Number(personalBest.minutes * 1000 * 60);
-    const secondsMS = Number(personalBest.seconds * 1000);
-    const milliseconds = Number(personalBest.milliseconds);
-
-    return minutesMS + secondsMS + milliseconds;
-}
+let personalBest = null;
 
 function convertFromMS(number) {
     return {
@@ -46,18 +32,19 @@ function timer() {
         sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
         time = new Date();
         
-        const converted = convertFromMS(sinceStarted);
+        const timeConverted = convertFromMS(sinceStarted);
+        const personalBestConverted = convertFromMS(personalBest);
         
-        timeElement.textContent = `Time: ${converted.minutes}:${converted.seconds}.${converted.milliseconds}`;
+        timeElement.textContent = `Time: ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
         personalBestElement.textContent = 
-            personalBest.minutes == null || personalBest.seconds == null || personalBest.milliseconds == null ?
+            personalBest == null || personalBest == 0 ?
             `Record: None` :
-            `Record: ${personalBest.minutes}:${personalBest.seconds}.${personalBest.milliseconds}`;
+            `Record: ${personalBestConverted.minutes}:${personalBestConverted.seconds}.${personalBestConverted.milliseconds}`;
         
-        const timePercentage = `${(sinceStarted / personalBestMS).toFixed(2) * 100}%`;
+        const timePercentage = `${(sinceStarted / personalBest).toFixed(2) * 100}%`;
         
         timerProgressBar.style.width = timePercentage;
-        timerProgressBar.style.backgroundColor = (sinceStarted > personalBestMS) ? "red" : "rgb(0, 255, 0)";
+        timerProgressBar.style.backgroundColor = (sinceStarted > personalBest) ? "red" : "rgb(0, 255, 0)";
         
         window.requestAnimationFrame(updateTimer);
     }
@@ -77,19 +64,7 @@ function restart() {
 }
 
 function completeRun() {
-    function setPersonalBest() {
-        const converted = convertFromMS(sinceStarted);
-
-        personalBest = {
-            minutes: converted.minutes,
-            seconds: converted.seconds,
-            milliseconds: converted.milliseconds
-        }
-
-        personalBestMS = convertToMS(personalBest);
-    }
-
-    if (personalBest.minutes == null || personalBest.seconds == null || personalBest.milliseconds == null || sinceStarted < personalBestMS) setPersonalBest();
+    if (personalBest == null || sinceStarted < personalBest || personalBest == 0) personalBest = sinceStarted;
 
     pause();
 }
