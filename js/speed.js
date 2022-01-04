@@ -9,19 +9,26 @@ export function speed() {
 
     let speed = 0;
 
-    function increaseSpeed() {
-        if (paused) return;
-
-        speed++;
-
+    function updateSpeed() {
         speedElement.textContent = `${speed.toFixed(2)} u/s`;
         speedBar.style.width = `${(speed / (speed + 72)) * 100}%`; //thanks Cool Doggo#3733
     }
 
-    function decreaseSpeed() {
-        speed = 0;
+    function increaseSpeed() {
+        if (paused) return;
+        window.cancelAnimationFrame(decreaseSpeed);
 
-        speedElement.textContent = `${speed.toFixed(2)} u/s`;
-        speedBar.style.width = "0%"
+        speed++;
+
+        updateSpeed(); 
+    }
+
+    function decreaseSpeed() {
+        if (speed <= 0) return;
+        speed--;
+        
+        updateSpeed();
+
+        window.requestAnimationFrame(decreaseSpeed);
     }
 }
