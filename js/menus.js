@@ -1,4 +1,4 @@
-export { menus, activateMenu }
+export { menus, activateMenu };
 
 function menus() {
     const openMenuButtons = document.querySelectorAll("[data-menu-open]");
