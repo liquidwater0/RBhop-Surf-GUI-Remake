@@ -13,7 +13,7 @@ chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") 
 function sendMessage() {
     if (chatBox.value.trim() == "") return;
 
-    const date = new Date().toLocaleString("en-us", 
+    const time = new Date().toLocaleString("en-us", 
         { 
             hour: "numeric", 
             minute: "2-digit", 
@@ -25,7 +25,7 @@ function sendMessage() {
 
     messageList.insertAdjacentHTML("beforeend", `
         <li>
-            <span class="time">[${date}] 
+            <span class="time">[${time}] 
             </span><span class="player">${playerName}:</span> 
             ${chatBox.value}
         </li>
