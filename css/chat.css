@@ -2,80 +2,121 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 33%;
-    height: 33%;
-    padding: 13px;
-    border-radius: 10px;
-    transition: background-color 0.15s;
+    width: 70%;
+    max-width: 850px;
+    background-color: var(--dark3);
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-#chat:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-}
-
-#chat:hover#chat button {
-    color: rgba(255, 255, 255, 0.25);
-}
-
-#chat div:first-child {
+#chat #topSection {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 13px 18px;
 }
 
-#chat button {
-    width: 40px;
-    font-size: 18px;
-    border-radius: 50%;
-    border: none;
+#chat #topSection h4 {
+    font-size: 17px;
+    letter-spacing: 1.1px;
+    font-weight: bold;
+}
+
+#chat #topSection #chatMinMaxButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     background-color: transparent;
-    color: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
+    color: rgb(200, 200, 200);
+    font-weight: bold;
+    right: 18px;
+    height: 35px;
     aspect-ratio: 1 / 1;
-    transition: 
-        background-color 0.2s,
-        color 0.2s;
+    border-radius: 100px;
+    transform: rotate(-90deg);
+    transition:
+        background-color 200ms,
+        color 200ms;
 }
 
-#chat button:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white !important;
+#chat #topSection #chatMinMaxButton:hover {
+    background-color: var(--dark);
+    color: white;
 }
 
 #chat ul {
     list-style: none;
+    padding: 0px 15px;
+    height: 400px;
+    max-height: 400px;
+    overflow: auto;
 }
 
-#chat ul li .yellow {
-    color: yellow;
+#chat ul::-webkit-scrollbar {
+    width: 8px;
 }
 
-#chat ul li .blue {
-    color: cyan;
+#chat ul::-webkit-scrollbar-thumb {
+    background-color: var(--dark);
+    border-radius: 100px;
+    transition: background-color 200ms; /*Why are you not working????????*/
 }
 
-#chat ul li .notice-bracket {
-    color: gray;
-}
-
-#chat ul li .notice {
-    color: rgb(100, 100, 255);
-}
-
-#chat ul li .timer {
-    color: rgb(110, 255, 110);
+#chat ul::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark2);
 }
 
 #chat ul li {
-    padding: 8px;
-    font-size: 18px;
-    /* text-shadow: 2px 2px 3px black; */
+    padding: 6px 0px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-#chat ul li span {
+#chat ul li .time,
+#chat ul li .tag {
+    font-size: 15px;
+}
+
+#chat ul li .player,
+#chat ul li .timer,
+#chat ul li .notice {
     font-weight: bold;
-    letter-spacing: 0.8px;
+    font-size: 18px;
+}
+
+#chat ul li .player { color: var(--nameColor, rgb(0, 160, 255)) }
+
+#chat ul li .time { color: rgb(130, 130, 130) }
+
+#chat ul li .notice { color: rgb(100, 100, 255) }
+
+#chat ul li .timer { color: rgb(110, 255, 110) }
+
+#chat ul li .bracket { color: gray }
+
+#chat #chatBox {
+    background-color: var(--dark);
+    color: white;
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 18px;
+    border: none;
+}
+
+#chat #chatBox:focus {
+    outline: none;
+}
+
+#chat #chatBox::placeholder {
+    font-weight: bold;
+    font-size: 15px;
+    opacity: 0.45;
+    transition: opacity 200ms;
+}
+
+#chat #chatBox:focus::placeholder {
+    opacity: 1;
 }
