@@ -6,9 +6,13 @@ export { chatBox };
     Player 1 placed #10/1000000 in the style Autohop with a time of 42:64.057
 </li>*/
 
+let chatClosed = false;
+
 const chatBox = document.getElementById("chatBox");
+const openCloseChatButton = document.getElementById("openCloseChatButton");
 
 chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
+openCloseChatButton.addEventListener("click", openCloseChat);
 
 function sendMessage() {
     if (chatBox.value.trim() == "") return;
@@ -32,4 +36,13 @@ function sendMessage() {
     `);
 
     chatBox.value = "";
+}
+
+function openCloseChat() {
+    const messageContainer = document.getElementById("messageContainer");
+
+    chatClosed = !chatClosed;
+    
+    messageContainer.classList.toggle("chatClosed", chatClosed);
+    openCloseChatButton.classList.toggle("rotate", chatClosed);
 }
