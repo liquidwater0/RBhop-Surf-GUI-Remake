@@ -25,8 +25,8 @@ function sendMessage() {
 
     messageList.insertAdjacentHTML("beforeend", `
         <li>
-            <span class="time">[${time}] 
-            </span><span class="player">${playerName}:</span> 
+            <span class="time">[${time}]</span>
+            <span class="player">${playerName}:</span> 
             ${chatBox.value}
         </li>
     `);
