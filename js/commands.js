@@ -1,5 +1,6 @@
 import { restart } from "./timer.js";
 import { sendNoticeMessage } from "./chat.js";
+import { activateMenu } from "./menus.js";
 
 export function commandHandler(message) {
     const prefixes = ["!", "/"];
@@ -9,6 +10,9 @@ export function commandHandler(message) {
             switch (message.slice(1)) {
                 case "r":
                     restart();
+                    break;
+                case "style":
+                    activateMenu("styles", true);
                     break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
