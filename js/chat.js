@@ -38,7 +38,7 @@ function chat() {
         messageList.insertAdjacentHTML("beforeend", `
             <li>
                 <span class="time">[${getTime()}]</span>
-                <span class="player">${localStorage.playerName || "Player 1"}:</span> 
+                <span style="color: ${localStorage.nameColor || "#00a0ff"}" class="player">${localStorage.playerName || "Player 1"}:</span> 
                 ${chatBox.value}
             </li>
         `);
