@@ -1,6 +1,5 @@
 import { activateMenu } from "../menus.js";
 import { restart } from "../timer.js";
-import { chatBox } from "../chat.js";
 
 export function mainMenu() {
     const restartButton = document.querySelector("[data-action='restart']");
@@ -9,7 +8,7 @@ export function mainMenu() {
     let isOpen = false;
 
     document.addEventListener("keypress", function(event) {
-        if (chatBox == document.activeElement) return;
+        if (document.activeElement.tagName == "INPUT") return;
 
         if (event.key == "m" || event.key == "M") activateMenu("mainMenu", isOpen);
         isOpen = !isOpen;
