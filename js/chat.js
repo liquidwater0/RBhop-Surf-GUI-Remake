@@ -1,4 +1,4 @@
-export { chatBox };
+export { chatBox, playerName };
 
 /*<li>
     <span class="time">[5:00pm]</span>
@@ -10,6 +10,8 @@ let chatClosed = false;
 
 const chatBox = document.getElementById("chatBox");
 const openCloseChatButton = document.getElementById("openCloseChatButton");
+
+const playerName = "ong";
 
 chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
 openCloseChatButton.addEventListener("click", openCloseChat);
@@ -25,7 +27,6 @@ function sendMessage() {
         });
 
     const messageList = document.querySelector("#chat ul");
-    const playerName = "ong";
 
     messageList.insertAdjacentHTML("beforeend", `
         <li>
