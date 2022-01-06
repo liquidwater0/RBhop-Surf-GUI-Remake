@@ -1,4 +1,5 @@
 import { updatePlayerList } from "../playerList.js";
+import { activateMenu } from "../menus.js";
 
 export function nameChangeMenu() {
     const saveNameButton = document.getElementById("saveNameButton");
@@ -13,7 +14,7 @@ export function nameChangeMenu() {
     function saveName() {
         localStorage.setItem("playerName", nameInput.value);
         localStorage.setItem("nameColor", nameColor.value);
-        document.documentElement.style.setProperty("--nameColor", nameColor.value);
         updatePlayerList();
+        activateMenu("nameChange", false);
     }
 }
