@@ -1,10 +1,9 @@
 export { timer, restart, paused };
-import { chatBox } from "./chat.js";
 
 let paused = false;
 
 document.addEventListener("keypress", function(event) {
-    if (chatBox == document.activeElement) return;
+    if (document.activeElement.tagName === "INPUT") return
 
     if (event.key == " ") paused = !paused;
     if (event.key == "r" || event.key == "R") restart();
