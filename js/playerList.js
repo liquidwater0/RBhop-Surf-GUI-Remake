@@ -2,5 +2,5 @@ const playerListElement = document.querySelector("#playerList ul");
 const yourPlayer = playerListElement.children[1];
 
 export function updatePlayerList() {
-    yourPlayer.textContent = localStorage.playerName || "Player 1";
+    yourPlayer.textContent = localStorage.playerName_RBS_GUI_Remake || "Player 1";
 }
