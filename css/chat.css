@@ -97,7 +97,6 @@
 
 #chat #messageContainer ul li .time { color: rgb(130, 130, 130) }
 #chat #messageContainer ul li .bracket { color: gray }
-#chat #messageContainer ul li .player { color: var(--nameColor, rgb(0, 160, 255)) }
 #chat #messageContainer ul li .notice { color: rgb(100, 100, 255) }
 #chat #messageContainer ul li .timer { color: rgb(110, 255, 110) }
 
