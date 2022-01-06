@@ -27,6 +27,28 @@ button {
     cursor: pointer;
 }
 
+input[type="text"] {
+    color: white;
+    padding: 13px 18px;
+    font-size: 18px;
+    border: none;
+}
+
+input[type="text"]::placeholder {
+    font-weight: bold;
+    font-size: 15px;
+    opacity: 0.45;
+    transition: opacity 200ms;
+}
+
+input[type="text"]:focus::placeholder {
+    opacity: 1;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
 #bottomSection {
     position: absolute;
     display: flex;
