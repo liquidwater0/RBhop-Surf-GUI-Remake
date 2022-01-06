@@ -103,24 +103,5 @@
 
 #chat #chatBox {
     background-color: var(--dark);
-    color: white;
     width: 100%;
-    padding: 13px 18px;
-    font-size: 18px;
-    border: none;
-}
-
-#chat #chatBox:focus {
-    outline: none;
-}
-
-#chat #chatBox::placeholder {
-    font-weight: bold;
-    font-size: 15px;
-    opacity: 0.45;
-    transition: opacity 200ms;
-}
-
-#chat #chatBox:focus::placeholder {
-    opacity: 1;
 }
