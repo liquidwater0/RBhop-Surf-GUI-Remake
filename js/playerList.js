@@ -1,8 +1,6 @@
-import { playerName } from "./chat.js";
+const playerListElement = document.querySelector("#playerList ul");
+const yourPlayer = playerListElement.children[1];
 
-export function playerList() {
-    const playerList = document.querySelector("#playerList ul");
-    const yourPlayer = playerList.children[1];
-
-    yourPlayer.textContent = playerName;
+export function updatePlayerList() {
+    yourPlayer.textContent = localStorage.playerName || "Player 1";
 }
