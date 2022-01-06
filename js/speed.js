@@ -1,11 +1,19 @@
 import { paused } from "./timer.js";
+import { chatBox } from "./chat.js";
 
 export function speed() {
     const speedElement = document.querySelector("#speed > p:first-of-type");
     const speedBar = document.getElementById("speedBar");
 
-    document.addEventListener("keydown", function(event) { if (event.key == "w" || event.key == "W") increaseSpeed() });
-    document.addEventListener("keyup", function(event) { if (event.key == "w" || event.key == "W") decreaseSpeed() }); //thanks drumman22 for idea of keyup
+    document.addEventListener("keydown", function(event) { 
+        if (chatBox == document.activeElement) return;
+        if (event.key == "w" || event.key == "W") increaseSpeed();
+    });
+
+    document.addEventListener("keyup", function(event) { //thanks drumman22 for idea of keyup
+        if (chatBox == document.activeElement) return;
+        if (event.key == "w" || event.key == "W") decreaseSpeed();
+    });
 
     let speed = 0;
 
@@ -17,7 +25,7 @@ export function speed() {
     function increaseSpeed() {
         if (paused) return;
         speed++;
-
+        
         updateSpeed(); 
     }
 
