@@ -22,12 +22,6 @@ function getTime() {
         });
 }
 
-setNameColor();
-
-function setNameColor () {
-    document.documentElement.style.setProperty("--nameColor", localStorage.nameColor || "rgb(0, 160, 255)");
-}
-
 function chat() {
     chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
     openCloseChatButton.addEventListener("click", openCloseChat);
