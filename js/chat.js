@@ -8,7 +8,6 @@ import { commandHandler } from "./commands.js";
 </li>*/
 
 let chatClosed = false;
-let time;
 
 const chatBox = document.getElementById("chatBox");
 const openCloseChatButton = document.getElementById("openCloseChatButton");
@@ -20,7 +19,7 @@ chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") 
 openCloseChatButton.addEventListener("click", openCloseChat);
 
 function getTime() {
-    time = new Date().toLocaleString("en-us", 
+    return new Date().toLocaleString("en-us", 
         { 
             hour: "numeric", 
             minute: "2-digit", 
@@ -30,12 +29,10 @@ function getTime() {
 
 function sendMessage() {
     if (chatBox.value.trim() == "") return;
-    
-    getTime();
 
     messageList.insertAdjacentHTML("beforeend", `
         <li>
-            <span class="time">[${time}]</span>
+            <span class="time">[${getTime()}]</span>
             <span class="player">${playerName}:</span> 
             ${chatBox.value}
         </li>
@@ -57,7 +54,7 @@ function openCloseChat() {
 function sendNoticeMessage(message) {
     messageList.insertAdjacentHTML("beforeend", `
         <li>
-            <span class="time">[${time}]</span>
+            <span class="time">[${getTime()}]</span>
             <span class="bracket">[</span><span class="notice">Notice</span><span class="bracket">]</span>
             ${message}
         </li>
