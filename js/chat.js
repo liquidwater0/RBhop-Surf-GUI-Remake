@@ -1,4 +1,5 @@
-export { chatBox, playerName };
+export { chatBox, playerName, messageList, sendNoticeMessage };
+import { commandHandler } from "./commands.js";
 
 /*<li>
     <span class="time">[5:00pm]</span>
@@ -7,26 +8,30 @@ export { chatBox, playerName };
 </li>*/
 
 let chatClosed = false;
+let time;
 
 const chatBox = document.getElementById("chatBox");
 const openCloseChatButton = document.getElementById("openCloseChatButton");
+const messageList = document.querySelector("#chat ul");
 
 const playerName = "ong";
 
 chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
 openCloseChatButton.addEventListener("click", openCloseChat);
 
-function sendMessage() {
-    if (chatBox.value.trim() == "") return;
-
-    const time = new Date().toLocaleString("en-us", 
+function getTime() {
+    time = new Date().toLocaleString("en-us", 
         { 
             hour: "numeric", 
             minute: "2-digit", 
             hour12: true 
         });
+}
 
-    const messageList = document.querySelector("#chat ul");
+function sendMessage() {
+    if (chatBox.value.trim() == "") return;
+    
+    getTime();
 
     messageList.insertAdjacentHTML("beforeend", `
         <li>
@@ -36,6 +41,7 @@ function sendMessage() {
         </li>
     `);
 
+    commandHandler(chatBox.value);
     chatBox.value = "";
 }
 
@@ -46,4 +52,14 @@ function openCloseChat() {
     
     messageContainer.classList.toggle("chatClosed", chatClosed);
     openCloseChatButton.classList.toggle("rotate", chatClosed);
+}
+
+function sendNoticeMessage(message) {
+    messageList.insertAdjacentHTML("beforeend", `
+        <li>
+            <span class="time">[${time}]</span>
+            <span class="bracket">[</span><span class="notice">Notice</span><span class="bracket">]</span>
+            ${message}
+        </li>
+    `);
 }
