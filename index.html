@@ -82,6 +82,7 @@
           <li>Change Nametag (/tag)</li>
           <li>Open Tutorial (/tutorial)</li>
           <li data-action="restart">Restart to the Beginning of the Map (/r)</li>
+          <li data-menu-open="settings">Settings (/settings)</li>
         </ul>
       </div>
     </div>
@@ -101,6 +102,42 @@
           <li data-style="Sideways">Sideways</li>
           <li data-style="W-Only">W-Only</li>
         </ul>
+      </div>
+    </div>
+
+    <div data-menu="settings" class="menu">
+      <div class="menu-container">
+        <div class="top-bar">
+          <h3 class="menu-heading">Settings</h3>
+          <button data-menu-close-button>&#10006</button>
+        </div>
+
+        <ul>
+          <li data-menu-open="nameChange">Change Name (/name)</li>
+          <li>Change Theme (/theme [light, dark])</li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-menu="nameChange" class="menu">
+      <div class="menu-container">
+        <div class="top-bar">
+          <h3 class="menu-heading">Change Name</h3>
+          <button data-menu-close-button>&#10006</button>
+        </div>
+
+        <div>
+          <label for="nameInput">
+            Change Name
+            <input type="text" name="nameInput" id="nameInput" placeholder="Enter new name here...">
+          </label>
+
+          <label for="nameColor">
+            Name Color
+            <input type="color" name="nameColor" id="nameColor">
+          </label>
+          <button id="saveNameButton">Save</button>
+        </div>
       </div>
     </div>
     <!-- End of Menus -->
