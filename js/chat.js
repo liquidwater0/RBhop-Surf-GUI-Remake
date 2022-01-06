@@ -1,4 +1,4 @@
-export { chatBox, playerName, messageList, sendNoticeMessage };
+export { chat, messageList, sendNoticeMessage };
 import { commandHandler } from "./commands.js";
 
 /*<li>
@@ -13,11 +13,6 @@ const chatBox = document.getElementById("chatBox");
 const openCloseChatButton = document.getElementById("openCloseChatButton");
 const messageList = document.querySelector("#chat ul");
 
-const playerName = "ong";
-
-chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
-openCloseChatButton.addEventListener("click", openCloseChat);
-
 function getTime() {
     return new Date().toLocaleString("en-us", 
         { 
@@ -27,19 +22,30 @@ function getTime() {
         });
 }
 
-function sendMessage() {
-    if (chatBox.value.trim() == "") return;
+setNameColor();
 
-    messageList.insertAdjacentHTML("beforeend", `
-        <li>
-            <span class="time">[${getTime()}]</span>
-            <span class="player">${playerName}:</span> 
-            ${chatBox.value}
-        </li>
-    `);
+function setNameColor () {
+    document.documentElement.style.setProperty("--nameColor", localStorage.nameColor || "rgb(0, 160, 255)");
+}
 
-    commandHandler(chatBox.value);
-    chatBox.value = "";
+function chat() {
+    chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
+    openCloseChatButton.addEventListener("click", openCloseChat);
+
+    function sendMessage() {
+        if (chatBox.value.trim() == "") return;
+
+        messageList.insertAdjacentHTML("beforeend", `
+            <li>
+                <span class="time">[${getTime()}]</span>
+                <span class="player">${localStorage.playerName || "Player 1"}:</span> 
+                ${chatBox.value}
+            </li>
+        `);
+
+        commandHandler(chatBox.value);
+        chatBox.value = "";
+    }
 }
 
 function openCloseChat() {
