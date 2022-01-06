@@ -14,6 +14,12 @@ export function commandHandler(message) {
                 case "style":
                     activateMenu("styles", true);
                     break;
+                case "settings":
+                    activateMenu("settings", true);
+                    break;
+                case "name":
+                    activateMenu("nameChange", true);
+                    break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
                     break;
