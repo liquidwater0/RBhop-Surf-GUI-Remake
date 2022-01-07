@@ -3,10 +3,38 @@
 @import url(timer.css);
 @import url(menus.css);
 
-:root {
-    --dark: rgb(55, 55, 55);
-    --dark2: rgb(45, 45, 45);
-    --dark3: rgba(45, 45, 45, 0.75);
+html[data-theme="dark"] {
+    --theme-color: rgb(55, 55, 55);
+    --theme-color2: rgb(45, 45, 45);
+    --theme-color3: rgba(45, 45, 45, 0.75);
+
+    --text-color: white;
+    --buttons-key: rgb(75, 75, 75);
+
+    --chat-open-close-button: rgb(200, 200, 200);
+    --chat-message-time: rgb(130, 130, 130);
+
+    --timer-sections: rgb(40, 40, 40);
+    --speed-bar: rgb(25, 25, 25);
+
+    --labels: rgb(200, 200, 200);
+}
+
+html[data-theme="light"] {
+    --theme-color: rgb(245, 245, 245);
+    --theme-color2: rgb(200, 200, 200);
+    --theme-color3: rgba(200, 200, 200, 0.75);
+
+    --text-color: black;
+    --buttons-key: rgb(210, 210, 210);
+
+    --chat-open-close-button: rgb(70, 70, 70);
+    --chat-message-time: rgb(50, 50, 50);
+
+    --timer-sections: rgb(175, 175, 175);
+    --speed-bar: rgb(115, 115, 115);
+
+    --labels: rgb(70, 70, 70);
 }
 
 *, *::before, *::after {
@@ -17,7 +45,7 @@
 
 body {
     background-color: rgb(90, 52, 52);
-    color: white;
+    color: var(--text-color);
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
@@ -28,7 +56,8 @@ button {
 }
 
 input[type="text"] {
-    color: white;
+    background-color: var(--theme-color2) !important;
+    color: var(--text-color);
     padding: 13px 18px;
     font-size: 18px;
     border: none;
@@ -65,8 +94,8 @@ input[type="text"]:focus {
 }
 
 #bottomSection .buttons-div button {
-    background-color: var(--dark);
-    color: white;
+    background-color: var(--theme-color);
+    color: var(--text-color);
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -76,11 +105,11 @@ input[type="text"]:focus {
 }
 
 #bottomSection .buttons-div button:hover {
-    background-color: var(--dark2);
+    background-color: var(--theme-color2);
 }
 
 #bottomSection .buttons-div button span {
-    background-color: rgb(75, 75, 75);
+    background-color: var(--buttons-key);
     padding: 10px;
     border-radius: 5px;
     pointer-events: none;
