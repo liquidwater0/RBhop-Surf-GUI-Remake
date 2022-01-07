@@ -67,7 +67,7 @@ function completeRun() {
         personalBest = sinceStarted;
         sendTimerMessage(`
             ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
-            placed #1/1000 in the style ${styleElement.textContent} with a time of 
+            placed #1/10 in the style ${styleElement.textContent} with a time of 
             ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}
         `);
     }
