@@ -19,13 +19,14 @@ export function mainMenu() {
         isOpen = !isOpen;
     });
 
-    let isDarkTheme = !localStorage.theme_RBS_GUI_Remake || localStorage.theme_RBS_GUI_Remake == "dark" ? true : false;
+    let isDarkTheme;
 
     function setTheme() {
         document.documentElement.setAttribute("data-theme", localStorage.theme_RBS_GUI_Remake || "dark");
     }
 
     function changeTheme() {
+        isDarkTheme = !localStorage.theme_RBS_GUI_Remake || localStorage.theme_RBS_GUI_Remake == "dark" ? true : false;
         isDarkTheme = !isDarkTheme;
         localStorage.theme_RBS_GUI_Remake = isDarkTheme ? "dark" : "light";
         setTheme();
