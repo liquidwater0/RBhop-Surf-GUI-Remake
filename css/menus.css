@@ -19,7 +19,7 @@
 
 .menu-container {
     width: 500px;
-    background-color: var(--dark);
+    background-color: var(--theme-color);
     pointer-events: all;
     border-radius: 15px;
     overflow: hidden;
@@ -31,7 +31,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: var(--dark2);
+    background-color: var(--theme-color2);
 }
 
 .menu .top-bar .menu-heading {
@@ -45,7 +45,7 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    color: white;
+    color: var(--text-color);
     font-size: 18px;
     border-radius: 50%;
     border: 0;
@@ -56,7 +56,7 @@
 }
 
 .menu .top-bar button:hover {
-    background-color: rgb(35, 35, 35);
+    background-color: var(--theme-color);
 }
 
 .menu ul {
@@ -74,7 +74,7 @@
 }
 
 .menu ul li:hover {
-    background-color: var(--dark2);
+    background-color: var(--theme-color2);
 }
 
 .menu label {
@@ -83,7 +83,7 @@
     align-items: center;
     gap: 10px;
     padding: 20px 0px;
-    color: rgb(220, 220, 220);
+    color: var(--labels);
     font-weight: bold;
     font-size: 20px;
     letter-spacing: 1.1px;
@@ -95,7 +95,6 @@
 }
 
 .menu label input[type="text"] {
-    background-color: var(--dark2);
     width: 50%;
 }
 
@@ -119,8 +118,8 @@
 }
 
 .menu button {
-    background-color: var(--dark2);
-    color: white;
+    background-color: var(--theme-color2);
+    color: var(--text-color);
     padding: 10px 15px;
     font-size: 18px;
     font-weight: bold;
