@@ -1,9 +1,10 @@
+export { stylesMenu, styleElement }
 import { restart } from "../timer.js";
 
-export function stylesMenu() {
-    const styleButtons = document.querySelectorAll("[data-style]");
-    const styleElement = document.querySelector("#style > p");
+const styleButtons = document.querySelectorAll("[data-style]");
+const styleElement = document.querySelector("#style > p");
 
+function stylesMenu() {
     styleButtons.forEach(function(styleButton) { styleButton.addEventListener("click", changeStyle) });
 
     function changeStyle(event) {
