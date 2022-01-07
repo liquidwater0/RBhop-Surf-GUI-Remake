@@ -1,4 +1,6 @@
 export { timer, restart, paused };
+import { sendTimerMessage } from "./chat.js";
+import { styleElement } from "../js/menus/stylesMenu.js";
 
 let paused = false;
 
@@ -19,6 +21,9 @@ let time = new Date();
 
 let personalBest = null;
 
+let timeConverted;
+let personalBestConverted;
+
 function convertFromMS(number) {
     return {
         minutes: String(parseInt((number / 1000) / 60)).padStart(2, "0"),
@@ -34,8 +39,8 @@ function timer() {
         sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
         time = new Date();
         
-        const timeConverted = convertFromMS(sinceStarted);
-        const personalBestConverted = convertFromMS(personalBest);
+        timeConverted = convertFromMS(sinceStarted);
+        personalBestConverted = convertFromMS(personalBest);
         
         timeElement.textContent = `Time: ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
         personalBestElement.textContent = 
@@ -58,7 +63,14 @@ function restart() {
 }
 
 function completeRun() {
-    if (personalBest == null || sinceStarted < personalBest || personalBest == 0) personalBest = sinceStarted;
+    if (personalBest == null || sinceStarted < personalBest || personalBest == 0) {
+        personalBest = sinceStarted;
+        sendTimerMessage(`
+            ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
+            placed #1/1000 in the style ${styleElement.textContent} with a time of 
+            ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}
+        `);
+    }
 
     paused = true;
 }
