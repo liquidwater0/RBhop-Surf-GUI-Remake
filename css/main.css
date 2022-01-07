@@ -14,6 +14,8 @@ html[data-theme="dark"] {
     --chat-open-close-button: rgb(200, 200, 200);
     --chat-message-time: rgb(130, 130, 130);
 
+    --player-list-text: rgb(200, 200, 200);
+
     --timer-sections: rgb(40, 40, 40);
     --speed-bar: rgb(25, 25, 25);
 
@@ -30,6 +32,8 @@ html[data-theme="light"] {
 
     --chat-open-close-button: rgb(70, 70, 70);
     --chat-message-time: rgb(50, 50, 50);
+
+    --player-list-text: rgb(30, 30, 30);
 
     --timer-sections: rgb(175, 175, 175);
     --speed-bar: rgb(115, 115, 115);
