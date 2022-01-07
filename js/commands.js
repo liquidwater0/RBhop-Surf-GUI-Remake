@@ -20,6 +20,14 @@ export function commandHandler(message) {
                 case "name":
                     activateMenu("nameChange", true);
                     break;
+                case "theme dark":
+                    document.documentElement.setAttribute("data-theme", "dark");
+                    localStorage.theme_RBS_GUI_Remake = document.documentElement.getAttribute("data-theme");
+                    break;
+                case "theme light":
+                    document.documentElement.setAttribute("data-theme", "light");
+                    localStorage.theme_RBS_GUI_Remake = document.documentElement.getAttribute("data-theme");
+                    break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
                     break;
