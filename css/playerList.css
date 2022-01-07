@@ -22,7 +22,7 @@
 
 #playerList .player {
     position: relative;
-    color: rgb(220, 220, 220);
+    color: var(--player-list-text);
     font-size: 25px;
     letter-spacing: 1.15px;
     font-weight: bold;
@@ -59,6 +59,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
     font-size: 13.5px;
     padding: 11px;
     left: 12px;
