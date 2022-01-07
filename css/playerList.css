@@ -6,7 +6,7 @@
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    background-color: var(--dark3);
+    background-color: var(--theme-color3);
 }
 
 #playerList ul {
@@ -14,7 +14,7 @@
 }
 
 #playerList .player-list-heading {
-    background-color: var(--dark2);
+    background-color: var(--theme-color2);
     padding: 15px 0px;
     font-size: 30px;
     font-weight: bold;
@@ -35,7 +35,7 @@
 }
 
 #playerList .player:hover {
-    background-color: var(--dark2);
+    background-color: var(--theme-color2);
 }
 
 #playerList .player::before {
