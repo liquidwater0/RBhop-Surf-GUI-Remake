@@ -1,11 +1,5 @@
-export { chat, messageList, sendNoticeMessage };
+export { chat, messageList, sendNoticeMessage, sendTimerMessage };
 import { commandHandler } from "./commands.js";
-
-/*<li>
-    <span class="time">[5:00pm]</span>
-    <span class="bracket">[</span><span class="notice">Notice</span><span class="bracket">]</span>
-    Player 1 placed #10/1000000 in the style Autohop with a time of 42:64.057
-</li>*/
 
 let chatClosed = false;
 
@@ -56,6 +50,16 @@ function sendNoticeMessage(message) {
         <li>
             <span class="time">[${getTime()}]</span>
             <span class="bracket">[</span><span class="notice">Notice</span><span class="bracket">]</span>
+            ${message}
+        </li>
+    `);
+}
+
+function sendTimerMessage(message) {
+    messageList.insertAdjacentHTML("beforeend", `
+        <li>
+            <span class="time">[${getTime()}]</span>
+            <span class="bracket">[</span><span class="timer">Timer</span><span class="bracket">]</span>
             ${message}
         </li>
     `);
