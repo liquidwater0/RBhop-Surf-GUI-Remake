@@ -75,7 +75,7 @@
     background-color: var(--theme-color2);
 }
 
-.menu .item-div{
+.menu .item-div {
     display: flex;
     flex-direction: column;
     align-items: center;
