@@ -60,7 +60,7 @@ button {
 }
 
 input[type="text"] {
-    background-color: var(--theme-color2) !important;
+    background-color: var(--theme-color2);
     color: var(--text-color);
     padding: 13px 18px;
     font-size: 18px;
