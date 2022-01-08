@@ -1,7 +1,7 @@
 import { menus } from "./menus.js";
 import { mainMenu } from "./menus/mainMenu.js";
 import { stylesMenu } from "./menus/stylesMenu.js";
-import { nameChangeMenu } from "./menus/nameChangeMenu.js";
+import { settingsMenu } from "./menus/settingsMenu.js";
 
 import { timer } from "./timer.js";
 import { speed } from "./speed.js";
@@ -11,7 +11,7 @@ import { chat } from "./chat.js";
 menus();
 mainMenu();
 stylesMenu();
-nameChangeMenu();
+settingsMenu();
 
 timer();
 speed();
