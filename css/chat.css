@@ -4,7 +4,6 @@
     left: 20px;
     width: 70%;
     max-width: 850px;
-    background-color: var(--theme-color3);
     overflow: hidden;
     border-radius: 8px;
 }
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--theme-color3);
     padding: 13px 18px;
 }
 
@@ -50,8 +50,14 @@
     transform: rotate(90deg);
 }
 
+#chat #messageContainer {
+    background-color: var(--theme-color3);
+    transform-origin: top;
+    transition: transform 400ms;
+}
+
 #chat #messageContainer.chatClosed {
-    height: 0px;
+    transform: scaleY(0);
 }
 
 #chat #messageContainer ul {
@@ -101,6 +107,5 @@
 #chat #messageContainer ul li .timer { color: rgb(110, 255, 110) }
 
 #chat #chatBox {
-    background-color: var(--theme-color);
     width: 100%;
 }
