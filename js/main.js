@@ -5,7 +5,7 @@ import { settingsMenu } from "./menus/settingsMenu.js";
 
 import { timer } from "./timer.js";
 import { speed } from "./speed.js";
-import { updatePlayerList } from "./playerList.js";
+import { playerList } from "./playerList.js";
 import { chat } from "./chat.js";
 
 menus();
@@ -15,5 +15,5 @@ settingsMenu();
 
 timer();
 speed();
-updatePlayerList();
+playerList();
 chat();
