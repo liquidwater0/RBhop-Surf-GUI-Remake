@@ -1,37 +1,40 @@
 #playerList {
     position: absolute;
+    background-color: var(--theme-color3);
     top: 20px;
     right: 20px;
-    width: 350px;
-    border-radius: 8px;
-    overflow: hidden;
+    width: 825px;
     text-align: center;
-    background-color: var(--theme-color3);
-}
-
-#playerList ul {
-    list-style: none;
+    border-radius: 8px;
+    border-spacing: 0px;
+    overflow: hidden;
 }
 
 #playerList .player-list-heading {
     background-color: var(--theme-color2);
-    padding: 15px 0px;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
+}
+
+#playerList .player-list-heading th {
+    padding: 10px 0px;
+}
+
+#playerList .column-names {
+    background-color: var(--column-names-color);
+}
+
+#playerList .column-names th {
+    padding: 5px 0px;
 }
 
 #playerList .player {
     position: relative;
     color: var(--player-list-text);
-    font-size: 25px;
-    letter-spacing: 1.15px;
+    font-size: 22px;
     font-weight: bold;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 10px 40px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 200ms;
 }
 
 #playerList .player:hover {
@@ -42,12 +45,15 @@
     content: "";
     position: absolute;
     background-color: var(--moderationStatus, rgb(100, 100, 100));
+    top: 50%;
+    transform: translateY(-50%);
     width: 5px;
     height: 15px;
     border-radius: 50px;
-    left: 19px;
-    top: 50%;
-    transform: translateY(-50%);
+}
+
+#playerList .player td {
+    padding: 10px 0px;
 }
 
 #playerList .player.whitelisted { --moderationStatus: white }
@@ -60,7 +66,8 @@
     justify-content: center;
     align-items: center;
     color: white;
+    font-weight: bold;
     font-size: 13.5px;
     padding: 11px;
-    left: 12px;
+    left: 27px;
 }
