@@ -1,6 +1,7 @@
 export { timer, restart, paused };
 import { sendTimerMessage } from "./chat.js";
 import { styleElement } from "../js/menus/stylesMenu.js";
+import { yourPersonalBest } from "./playerList.js";
 
 let paused = false;
 
@@ -65,6 +66,9 @@ function restart() {
 function completeRun() {
     if (personalBest == null || sinceStarted < personalBest || personalBest == 0) {
         personalBest = sinceStarted;
+
+        yourPersonalBest.textContent = `${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
+
         sendTimerMessage(`
             ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
             placed #1/10 in the style ${styleElement.textContent} with a time of 
