@@ -12,20 +12,96 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div id="playerList">
-      <ul>
-        <li class="player-list-heading">Player List (7)</li>
-        <li class="player whitelisted">Player 1</li>
-        <li class="player blacklisted">Player 2</li>
-        <li class="player moderator">Player 3</li>
-        <li class="player pending">Player 4</li>
-        <li class="player whitelisted">Player 5</li>
-        <li class="player">Player 6</li>
-        <li class="player">Player 7</li>
-        <li class="player bot">Player 3</li>
-        <li class="player bot">Player 5</li>
-      </ul>
-    </div>
+    <table id="playerList">
+      <thead>
+        <tr class="player-list-heading">
+          <th colspan="7">Player List (7)</th>
+        </tr>
+        <tr class="column-names">
+          <th>Status</th>
+          <th>Name</th>
+          <th>Personal Best</th>
+          <th>Style</th>
+          <th>Rank</th>
+          <th>Skill</th>
+          <th>Ping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="player whitelisted">
+          <td data-your-player>Player 1</td>
+          <td data-your-personal-best>00:00.000</td>
+          <td data-your-style>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player blacklisted">
+          <td>Player 2</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player moderator">
+          <td>Player 3</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player pending">
+          <td>Player 4</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player whitelisted">
+          <td>Player 5</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player">
+          <td>Player 6</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player">
+          <td>Player 7</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td data-ping>0</td>
+        </tr>
+        <tr class="player bot">
+          <td>Player 3</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td>0</td>
+        </tr>
+        <tr class="player bot">
+          <td>Player 5</td>
+          <td>00:00.000</td>
+          <td>Autohop</td>
+          <td>God (20)</td>
+          <td>A+ (100%)</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div id="chat">
       <div id="topSection">
