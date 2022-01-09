@@ -67,13 +67,15 @@ function completeRun() {
     if (personalBest == null || sinceStarted < personalBest || personalBest == 0) {
         personalBest = sinceStarted;
 
-        yourPersonalBest.textContent = `${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
+        yourPersonalBest.textContent = personalBest == 0 ? "None" : `${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
 
-        sendTimerMessage(`
-            ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
-            placed #1/10 in the style ${styleElement.textContent} with a time of 
-            ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}
-        `);
+        if (personalBest != 0) {
+            sendTimerMessage(`
+                ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
+                placed #1/10 in the style ${styleElement.textContent} with a time of 
+                ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}
+            `)
+        }
     }
 
     paused = true;
