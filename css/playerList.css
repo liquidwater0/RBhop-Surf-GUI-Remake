@@ -3,11 +3,32 @@
     background-color: var(--theme-color3);
     top: 20px;
     right: 20px;
-    width: 825px;
+    width: 400px;
     text-align: center;
     border-radius: 8px;
     border-spacing: 0px;
     overflow: hidden;
+}
+
+#playerList.player-list-open {
+    width: 825px;
+}
+
+#playerList tr {
+    display: flex;
+    justify-content: center;
+}
+
+#playerList.player-list-open tr {
+    display: table-row;
+}
+
+#playerList tbody tr :not(td:first-child) {
+    display: none;
+}
+
+#playerList.player-list-open tbody tr :not(td:first-child) {
+    display: table-cell;
 }
 
 #playerList .player-list-heading {
@@ -22,6 +43,13 @@
 
 #playerList .column-names {
     background-color: var(--column-names-color);
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 500ms;
+}
+
+#playerList.player-list-open .column-names {
+    transform: scaleY(1);
 }
 
 #playerList .column-names th {
@@ -46,14 +74,11 @@
     position: absolute;
     background-color: var(--moderationStatus, rgb(100, 100, 100));
     top: 50%;
+    left: 34px;
     transform: translateY(-50%);
     width: 5px;
     height: 15px;
     border-radius: 50px;
-}
-
-#playerList .player td {
-    padding: 10px 0px;
 }
 
 #playerList .player.whitelisted { --moderationStatus: white }
@@ -70,4 +95,8 @@
     font-size: 13.5px;
     padding: 11px;
     left: 27px;
+}
+
+#playerList .player td {
+    padding: 10px 0px;
 }
