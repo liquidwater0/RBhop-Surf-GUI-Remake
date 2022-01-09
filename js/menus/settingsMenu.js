@@ -1,4 +1,4 @@
-import { updatePlayerList } from "../playerList.js";
+import { playerList } from "../playerList.js";
 import { activateMenu } from "../menus.js";
 
 export function settingsMenu() {
@@ -15,7 +15,7 @@ export function settingsMenu() {
     function saveName() {
         localStorage.setItem("playerName_RBS_GUI_Remake", nameInput.value);
         localStorage.setItem("nameColor_RBS_GUI_Remake", nameColor.value);
-        updatePlayerList();
+        playerList();
         activateMenu("nameChange", false);
     }
 
