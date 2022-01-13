@@ -37,11 +37,11 @@ function chat() {
 }
 
 function openCloseChat() {
-    const messageContainer = document.getElementById("messageContainer");
+    const chat = document.getElementById("chat");
 
     chatClosed = !chatClosed;
     
-    messageContainer.classList.toggle("chatClosed", chatClosed);
+    chat.classList.toggle("chat-closed", chatClosed);
     openCloseChatButton.classList.toggle("rotate", chatClosed);
 }
 
