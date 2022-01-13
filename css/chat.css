@@ -56,7 +56,7 @@
     transition: transform 400ms;
 }
 
-#chat #messageContainer.chatClosed {
+#chat.chat-closed #messageContainer {
     transform: scaleY(0);
 }
 
