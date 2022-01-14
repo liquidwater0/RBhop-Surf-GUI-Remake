@@ -135,8 +135,8 @@
       </div>
 
       <div class="buttons-div">
-        <button>Shop <span>P</span></button>
-        <button data-menu-open="mainMenu" data-switched>Menu <span>M</span></button>
+        <button>Shop <span class="keyboard-key">P</span></button>
+        <button data-menu-open="mainMenu" data-switched>Menu <span class="keyboard-key">M</span></button>
       </div>
     </div>
 
@@ -158,6 +158,7 @@
           <li>Change Nametag (/tag)</li>
           <li>Open Tutorial (/tutorial)</li>
           <li data-action="restart">Restart to the Beginning of the Map (/r)</li>
+          <li data-menu-open="shortcutsMenu">Shortcuts Menu (/shortcuts)</li>
           <li data-menu-open="settings">Settings (/settings)</li>
         </ul>
       </div>
@@ -218,6 +219,24 @@
           </div>
 
           <button id="saveNameButton">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div data-menu="shortcutsMenu" class="menu">
+      <div class="menu-container">
+        <div class="top-bar">
+          <h3 class="menu-heading">Keyboard Shortcuts</h3>
+          <button data-menu-close-button>&#10006</button>
+        </div>
+
+        <div>
+          <div class="item-div"><div><span class="keyboard-key">P</span> Open Shop Menu</div></div>
+          <div class="item-div"><div><span class="keyboard-key">M</span> Open Main Menu</div></div>
+          <div class="item-div"><div>Hold <span class="keyboard-key">W</span> Increase Speed</div></div>
+          <div class="item-div"><div><span class="keyboard-key">R</span> Restart Run</div></div>
+          <div class="item-div"><div><span class="keyboard-key">Enter</span> Complete Run</div></div>
+          <div class="item-div"><div>Hold <span class="keyboard-key">`</span> Open Player List</div></div>
         </div>
       </div>
     </div>
