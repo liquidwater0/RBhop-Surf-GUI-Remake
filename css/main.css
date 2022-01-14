@@ -9,7 +9,7 @@ html[data-theme="dark"] {
     --theme-color3: rgba(45, 45, 45, 0.75);
 
     --text-color: white;
-    --buttons-key: rgb(75, 75, 75);
+    --keyboard-keys: rgb(75, 75, 75);
 
     --chat-open-close-button: rgb(200, 200, 200);
     --chat-message-time: rgb(130, 130, 130);
@@ -29,7 +29,7 @@ html[data-theme="light"] {
     --theme-color3: rgba(200, 200, 200, 0.75);
 
     --text-color: black;
-    --buttons-key: rgb(210, 210, 210);
+    --keyboard-keys: rgb(210, 210, 210);
 
     --chat-open-close-button: rgb(70, 70, 70);
     --chat-message-time: rgb(50, 50, 50);
@@ -84,6 +84,15 @@ input[type="text"]:focus {
     outline: none;
 }
 
+.keyboard-key {
+    background-color: var(--keyboard-keys);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
 #bottomSection {
     position: absolute;
     display: flex;
@@ -112,11 +121,4 @@ input[type="text"]:focus {
 
 #bottomSection .buttons-div button:hover {
     background-color: var(--theme-color2);
-}
-
-#bottomSection .buttons-div button span {
-    background-color: var(--buttons-key);
-    padding: 10px;
-    border-radius: 5px;
-    pointer-events: none;
 }
