@@ -1,5 +1,13 @@
 export { menus, activateMenu };
 
+import { mainMenu } from "./menus/mainMenu.js"; 
+import { stylesMenu } from "./menus/stylesMenu.js";
+import { settingsMenu } from "./menus/settingsMenu.js"; 
+
+mainMenu();
+stylesMenu();
+settingsMenu();
+
 function menus() {
     const openMenuButtons = document.querySelectorAll("[data-menu-open]");
     const closeMenuButtons = document.querySelectorAll("[data-menu-close-button]");
