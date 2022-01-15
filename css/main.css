@@ -6,7 +6,7 @@
 html[data-theme="dark"] {
     --theme-color: rgb(55, 55, 55);
     --theme-color2: rgb(45, 45, 45);
-    --theme-color3: rgba(45, 45, 45, 0.75);
+    --theme-color3: rgba(45, 45, 45, 0.8);
 
     --text-color: white;
     --keyboard-keys: rgb(75, 75, 75);
@@ -26,7 +26,7 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
     --theme-color: rgb(220, 220, 220);
     --theme-color2: rgb(240, 240, 240);
-    --theme-color3: rgba(240, 240, 240, 0.75);
+    --theme-color3: rgba(240, 240, 240, 0.8);
 
     --text-color: black;
     --keyboard-keys: rgb(185, 185, 185);
@@ -91,6 +91,11 @@ input[type="text"]:focus {
     font-size: 18px;
     font-weight: bold;
     pointer-events: none;
+}
+
+.transparent-blur {
+    background-color: var(--theme-color3);
+    backdrop-filter: blur(10px);
 }
 
 #bottomSection {
