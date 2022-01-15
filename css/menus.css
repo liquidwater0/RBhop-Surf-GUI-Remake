@@ -19,7 +19,6 @@
 
 .menu-container {
     width: 500px;
-    background-color: var(--theme-color);
     pointer-events: all;
     border-radius: 15px;
     overflow: hidden;
