@@ -12,7 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--theme-color3);
     padding: 13px 18px;
 }
 
@@ -51,7 +50,6 @@
 }
 
 #chat #messageContainer {
-    background-color: var(--theme-color3);
     transform-origin: top;
     transition: transform 400ms;
 }
