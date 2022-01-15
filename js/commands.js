@@ -28,8 +28,8 @@ export function commandHandler(message) {
                     document.documentElement.setAttribute("data-theme", "light");
                     localStorage.theme_RBS_GUI_Remake = document.documentElement.getAttribute("data-theme");
                     break;
-                case "shortcuts":
-                    activateMenu("shortcutsMenu", true);
+                case "controls":
+                    activateMenu("controlsMenu", true);
                     break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
