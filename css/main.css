@@ -24,17 +24,17 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-    --theme-color: rgb(245, 245, 245);
-    --theme-color2: rgb(200, 200, 200);
-    --theme-color3: rgba(200, 200, 200, 0.75);
+    --theme-color: rgb(220, 220, 220);
+    --theme-color2: rgb(240, 240, 240);
+    --theme-color3: rgba(240, 240, 240, 0.75);
 
     --text-color: black;
-    --keyboard-keys: rgb(210, 210, 210);
+    --keyboard-keys: rgb(185, 185, 185);
 
     --chat-open-close-button: rgb(70, 70, 70);
     --chat-message-time: rgb(50, 50, 50);
 
-    --column-names-color: rgb(175, 175, 175);
+    --column-names-color: rgb(215, 215, 215);
     --player-list-text: rgb(30, 30, 30);
 
     --timer-sections: rgb(175, 175, 175);
