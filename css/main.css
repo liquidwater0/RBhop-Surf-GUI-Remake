@@ -59,6 +59,16 @@ body {
 button {
     border: none;
     cursor: pointer;
+    background-color: var(--theme-color);
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    transition: background-color 200ms;
+}
+
+button:hover {
+    background-color: var(--theme-color2);
 }
 
 input[type="text"] {
@@ -114,16 +124,6 @@ input[type="text"]:focus {
 }
 
 #bottomSection .buttons-div button {
-    background-color: var(--theme-color);
-    color: var(--text-color);
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
     padding: 17px 23px;
     border-radius: 15px;
-    transition: background-color 0.2s;
-}
-
-#bottomSection .buttons-div button:hover {
-    background-color: var(--theme-color2);
 }
