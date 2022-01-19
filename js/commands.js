@@ -1,7 +1,7 @@
 import { restart } from "./timer.js";
 import { sendNoticeMessage } from "./chat.js";
 import { activateMenu } from "./menus.js";
-import { settings } from "./menus/settingsMenu.js";
+import { settings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
 
 export function commandHandler(message) {
     const prefixes = ["!", "/"];
@@ -33,6 +33,12 @@ export function commandHandler(message) {
                     break;
                 case "controls":
                     activateMenu("controlsMenu", true);
+                    break;
+                case "autorestart":
+                    updateAutoRestart();
+
+                    settings.autoRestart = autoRestart;
+                    localStorage.RBS_GUI_Remake = JSON.stringify(settings);
                     break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
