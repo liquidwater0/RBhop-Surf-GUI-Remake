@@ -6,21 +6,22 @@ function getRandomNumber(min, max) {
 }
 
 const playerListElement = document.getElementById("playerList");
+const pingElements = document.querySelectorAll("[data-ping]");
+
 const yourPlayer = document.querySelector("#playerList [data-your-player]");
 const yourStyle = document.querySelector("#playerList [data-your-style]");
 const yourPersonalBest = document.querySelector("#playerList [data-your-personal-best]");
-const pingElements = document.querySelectorAll("[data-ping]");
 
 document.addEventListener("keydown", function(event) {
     if (document.activeElement.tagName == "INPUT") return;
 
-    if (event.key == "`") playerListElement.classList.add("player-list-open");
+    if (event.key == "`") playerListElement.classList.add("player-list-expanded");
 });
 
 document.addEventListener("keyup", function(event) {
     if (document.activeElement.tagName == "INPUT") return;
 
-    if (event.key == "`") playerListElement.classList.remove("player-list-open");
+    if (event.key == "`") playerListElement.classList.remove("player-list-expanded");
 });
 
 function playerList() {
