@@ -5,7 +5,7 @@ import { activateMenu } from "../menus.js";
 let settings = localStorage.RBS_GUI_Remake ? JSON.parse(localStorage.RBS_GUI_Remake) : {};
 let autoRestart = settings.autoRestart || false;
 
-function updateAutoRestart() { autoRestart = !autoRestart };
+function updateAutoRestart() { autoRestart = !settings.autoRestart };
 
 function settingsMenu() {
     //Name and Color Changer
