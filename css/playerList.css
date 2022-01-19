@@ -10,7 +10,7 @@
     transition: width 500ms;
 }
 
-#playerList.player-list-open {
+#playerList.player-list-expanded {
     width: 825px;
 }
 
@@ -20,7 +20,7 @@
     white-space: nowrap;
 }
 
-#playerList.player-list-open tr {
+#playerList.player-list-expanded tr {
     display: table-row;
 }
 
@@ -28,7 +28,7 @@
     display: none;
 }
 
-#playerList.player-list-open tbody tr :not(td:first-child) {
+#playerList.player-list-expanded tbody tr :not(td:first-child) {
     display: table-cell;
 }
 
@@ -49,7 +49,7 @@
     transition: transform 500ms;
 }
 
-#playerList.player-list-open .column-names {
+#playerList.player-list-expanded .column-names {
     transform: scaleY(1);
 }
 
