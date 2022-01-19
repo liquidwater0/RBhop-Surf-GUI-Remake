@@ -1,6 +1,7 @@
 import { restart } from "./timer.js";
 import { sendNoticeMessage } from "./chat.js";
 import { activateMenu } from "./menus.js";
+import { settings } from "./menus/settingsMenu.js";
 
 export function commandHandler(message) {
     const prefixes = ["!", "/"];
@@ -22,11 +23,13 @@ export function commandHandler(message) {
                     break;
                 case "theme dark":
                     document.documentElement.setAttribute("data-theme", "dark");
-                    localStorage.theme_RBS_GUI_Remake = document.documentElement.getAttribute("data-theme");
+                    settings.theme = "dark";
+                    localStorage.RBS_GUI_Remake = JSON.stringify(settings);
                     break;
                 case "theme light":
                     document.documentElement.setAttribute("data-theme", "light");
-                    localStorage.theme_RBS_GUI_Remake = document.documentElement.getAttribute("data-theme");
+                    settings.theme = "light";
+                    localStorage.RBS_GUI_Remake = JSON.stringify(settings);
                     break;
                 case "controls":
                     activateMenu("controlsMenu", true);
