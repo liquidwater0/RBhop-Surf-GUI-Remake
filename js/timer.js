@@ -2,6 +2,7 @@ export { timer, restart, paused };
 import { sendTimerMessage } from "./chat.js";
 import { styleElement } from "../js/menus/stylesMenu.js";
 import { yourPersonalBest } from "./playerList.js";
+import { settings } from "./menus/settingsMenu.js";
 
 let paused = false;
 
@@ -39,9 +40,11 @@ function timer() {
     function updateTimer() { //thanks Cool Doggo#3733
         sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
         time = new Date();
-        
+
         timeConverted = convertFromMS(sinceStarted);
         personalBestConverted = convertFromMS(personalBest);
+
+        if (sinceStarted > personalBest && personalBest != null && personalBest != 0 && settings.autoRestart == true) restart();
         
         timeElement.textContent = `Time: ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
         personalBestElement.textContent = 
@@ -53,7 +56,7 @@ function timer() {
         
         timerProgressBar.style.width = timePercentage;
         timerProgressBar.style.backgroundColor = (sinceStarted > personalBest) ? "red" : "rgb(0, 255, 0)";
-        
+
         window.requestAnimationFrame(updateTimer);
     }
 }
@@ -71,7 +74,7 @@ function completeRun() {
 
         if (personalBest != 0) {
             sendTimerMessage(`
-                ${localStorage.playerName_RBS_GUI_Remake || "Player 1"}
+                ${settings.playerName || "Player 1"}
                 placed #1/10 in the style ${styleElement.textContent} with a time of 
                 ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}
             `)
