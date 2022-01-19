@@ -40,6 +40,14 @@ export function commandHandler(message) {
                     settings.autoRestart = autoRestart;
                     localStorage.RBS_GUI_Remake = JSON.stringify(settings);
                     break;
+                case "autorestart on":
+                    settings.autoRestart = true;
+                    localStorage.RBS_GUI_Remake = JSON.stringify(settings);
+                    break;
+                case "autorestart off":
+                    settings.autoRestart = false;
+                    localStorage.RBS_GUI_Remake = JSON.stringify(settings);
+                    break;
                 default:
                     sendNoticeMessage(`The command "${message}" does not exist.`);
                     break;
