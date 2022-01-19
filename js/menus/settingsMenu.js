@@ -1,8 +1,11 @@
-export { settingsMenu, settings };
+export { settingsMenu, updateAutoRestart, settings, autoRestart };
 import { playerList } from "../playerList.js";
 import { activateMenu } from "../menus.js";
 
 let settings = localStorage.RBS_GUI_Remake ? JSON.parse(localStorage.RBS_GUI_Remake) : {};
+let autoRestart = settings.autoRestart || false;
+
+function updateAutoRestart() { autoRestart = !autoRestart };
 
 function settingsMenu() {
     //Name and Color Changer
@@ -16,12 +19,9 @@ function settingsMenu() {
     saveNameButton.addEventListener("click", saveName);    
 
     function saveName() {
-        const playerSettings = {
-            playerName: nameInput.value,
-            nameColor: nameColor.value
-        }
+        settings.playerName = nameInput.value;
+        settings.nameColor = nameColor.value;
 
-        settings = { ...settings, ...playerSettings };
         localStorage.RBS_GUI_Remake = JSON.stringify(settings);
         
         playerList();
@@ -44,11 +44,7 @@ function settingsMenu() {
         isDarkTheme = !settings.theme || settings.theme == "dark" ? true : false;
         isDarkTheme = !isDarkTheme;
 
-        const theme = { 
-            theme: isDarkTheme ? "dark" : "light"
-        }
-
-        settings = { ...settings, ...theme };
+        settings.theme = isDarkTheme ? "dark" : "light";
         localStorage.RBS_GUI_Remake = JSON.stringify(settings);
 
         setTheme();
