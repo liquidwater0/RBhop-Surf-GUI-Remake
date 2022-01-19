@@ -84,6 +84,10 @@
     font-weight: bold;
 }
 
+.menu[data-menu="controlsMenu"] .item-div {
+    display: block;
+}
+
 .menu .item-div label {
     display: flex;
     flex-direction: column;
