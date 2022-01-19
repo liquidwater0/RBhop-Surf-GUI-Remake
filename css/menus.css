@@ -29,7 +29,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 15px;
+    padding: 10px 15px;
     background-color: var(--theme-color2);
 }
 
@@ -45,8 +45,8 @@
     align-items: center;
     background-color: transparent;
     color: var(--text-color);
-    font-size: 18px;
     border-radius: 50%;
+    padding: 20px;
     width: 40px;
     height: 40px;
     transition: background-color 0.2s;
@@ -122,8 +122,8 @@
     border-radius: 8px;
 }
 
-.menu button {
+.menu button:not([data-menu-close-button]) {
     padding: 10px 15px;
-    margin: 10px 0px;
+    margin: 17px 0px;
     border-radius: 8px;
 }
