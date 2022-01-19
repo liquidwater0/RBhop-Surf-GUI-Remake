@@ -1,5 +1,6 @@
 export { chat, messageList, sendNoticeMessage, sendTimerMessage };
 import { commandHandler } from "./commands.js";
+import { settings } from "./menus/settingsMenu.js";
 
 let chatClosed = false;
 
@@ -26,7 +27,7 @@ function chat() {
         messageList.insertAdjacentHTML("beforeend", `
             <li>
                 <span class="time">[${getTime()}]</span>
-                <span style="color: ${localStorage.nameColor_RBS_GUI_Remake || "#00a0ff"}" class="player">${localStorage.playerName_RBS_GUI_Remake || "Player 1"}:</span> 
+                <span style="color: ${settings.nameColor || "#00a0ff"}" class="player">${settings.playerName || "Player 1"}:</span> 
                 ${chatBox.value}
             </li>
         `);
