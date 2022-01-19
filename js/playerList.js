@@ -1,4 +1,5 @@
 export { playerList, yourStyle, yourPersonalBest };
+import { settings } from "./menus/settingsMenu.js";
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -23,7 +24,7 @@ document.addEventListener("keyup", function(event) {
 });
 
 function playerList() {
-    yourPlayer.textContent = localStorage.playerName_RBS_GUI_Remake || "Player 1";
+    yourPlayer.textContent = settings.playerName || "Player 1";
     
     setInterval(update, 200);
 
