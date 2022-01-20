@@ -12,7 +12,7 @@ export function commandHandler(message) {
                 case "r":
                     restart();
                     break;
-                case "style":
+                case "styles":
                     activateMenu("styles", true);
                     break;
                 case "settings":
