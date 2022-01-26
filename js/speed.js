@@ -21,17 +21,16 @@ export function speed() {
         speedBar.style.width = `${(speed / (speed + 72)) * 100}%`; //thanks Cool Doggo#3733
     }
 
+    //make it so speed stops decreasing when you press W while speed is decreasing
     function increaseSpeed() {
-        if (paused) return;
-        speed++;
-        
+        if (!paused) speed++;
         updateSpeed(); 
     }
 
+    //make it so requestAnimationFrame isn't called multiple times when spamming W
     function decreaseSpeed() {
         if (speed <= 0) return;
-        speed--;
-
+        if (!paused) speed--;
         updateSpeed();
 
         window.requestAnimationFrame(decreaseSpeed);
