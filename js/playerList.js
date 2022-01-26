@@ -14,14 +14,12 @@ const yourPersonalBest = document.querySelector("#playerList [data-your-personal
 
 document.addEventListener("keydown", function(event) {
     if (document.activeElement.tagName == "INPUT") return;
-
-    if (event.key == "`") playerListElement.classList.add("player-list-expanded");
+    if (event.key == "`" || event.key == "~") playerListElement.classList.add("player-list-expanded");
 });
 
 document.addEventListener("keyup", function(event) {
     if (document.activeElement.tagName == "INPUT") return;
-
-    if (event.key == "`") playerListElement.classList.remove("player-list-expanded");
+    if (event.key == "`" || event.key == "~") playerListElement.classList.remove("player-list-expanded");
 });
 
 function playerList() {
