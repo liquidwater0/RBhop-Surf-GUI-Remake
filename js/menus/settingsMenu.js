@@ -49,4 +49,14 @@ function settingsMenu() {
 
         setTheme();
     }
+
+    //Autorestart Toggle
+    const autoRestartToggle = document.querySelector("[data-action='changeAutoRestart']");
+    autoRestartToggle.addEventListener("click", changeAutoRestart);
+
+    function changeAutoRestart() {
+        updateAutoRestart();
+        settings.autoRestart = autoRestart;
+        localStorage.RBS_GUI_Remake = JSON.stringify(settings);
+    }
 }
