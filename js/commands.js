@@ -32,7 +32,7 @@ export function commandHandler(message) {
                     localStorage.RBS_GUI_Remake = JSON.stringify(settings);
                     break;
                 case "controls":
-                    activateMenu("controlsMenu", true);
+                    activateMenu("controls", true);
                     break;
                 case "autorestart":
                     updateAutoRestart();
