@@ -84,7 +84,7 @@
     font-weight: bold;
 }
 
-.menu[data-menu="controlsMenu"] .item-div {
+.menu[data-menu="controls"] .item-div {
     display: block;
 }
 
