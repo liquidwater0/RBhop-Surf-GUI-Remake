@@ -1,4 +1,5 @@
 export { settingsMenu, updateAutoRestart, settings, autoRestart };
+
 import { playerList } from "../playerList.js";
 import { activateMenu } from "../menus.js";
 
