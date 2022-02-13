@@ -1,4 +1,5 @@
 export { chat, messageList, sendNoticeMessage, sendTimerMessage };
+
 import { commandHandler } from "./commands.js";
 import { settings } from "./menus/settingsMenu.js";
 
@@ -18,7 +19,7 @@ function getTime() {
 }
 
 function chat() {
-    chatBox.addEventListener("keydown", function(event) { if (event.key == "Enter") sendMessage() });
+    chatBox.addEventListener("keydown", event => { if (event.key == "Enter") sendMessage() });
     openCloseChatButton.addEventListener("click", openCloseChat);
 
     function sendMessage() {
