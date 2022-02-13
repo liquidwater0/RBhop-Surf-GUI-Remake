@@ -1,9 +1,8 @@
 import { restart } from "./timer.js";
-import { sendNoticeMessage } from "./chat.js";
 import { activateMenu } from "./menus.js";
 import { settings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
 
-const commands = [
+export const commands = [
     {
         name: "Restart",
         description: "Restart the run.",
@@ -72,48 +71,3 @@ const commands = [
         activateCommand: () => activateMenu("mainMenu", true)
     }
 ]
-
-export function commandHandler(message) {
-    const prefixes = ["!", "/"];
-
-    function checkPrefix(prefix) {
-        return message[0] == prefix;
-    }
-
-    if (!prefixes.some(checkPrefix)) return;
-
-    const messageParts = message.slice(1).split(" ");
-
-    function checkCommand() {
-        let commandObject = {};
-
-        commands.forEach(command => {
-            command.aliases.forEach(alias => {
-                if (messageParts[0] === alias) commandObject.command = command;
-            });
-
-            if (command.arguments === null) return;
-
-            command.arguments.forEach(argument => {
-                if (messageParts[1] === argument) commandObject.correctArguments = true;
-            });
-        });
-
-        return commandObject;
-    }
-
-    const correctCommand = checkCommand().command;
-
-    if (!correctCommand) {
-        sendNoticeMessage(`The command "${message}" does not exist.`);
-        return;
-    }
-
-    //fix invalid arguments message for optional arguments
-    if (correctCommand.arguments !== null && !checkCommand().correctArguments) {
-        sendNoticeMessage(`Invalid arguments.`);
-        return;
-    }
-
-    correctCommand.activateCommand(messageParts[1]);
-}
