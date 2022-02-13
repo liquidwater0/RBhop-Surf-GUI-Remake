@@ -7,7 +7,7 @@ export function mainMenu() {
 
     let isOpen = false;
 
-    document.addEventListener("keypress", function(event) {
+    document.addEventListener("keypress", event => {
         if (document.activeElement.tagName == "INPUT") return;
 
         if (event.key == "m" || event.key == "M") activateMenu("mainMenu", isOpen);
