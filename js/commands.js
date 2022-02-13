@@ -1,6 +1,6 @@
 import { restart } from "./timer.js";
 import { activateMenu } from "./menus.js";
-import { settings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
+import { settings, saveSettings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
 
 export const commands = [
     {
@@ -41,7 +41,7 @@ export const commands = [
                 settings.theme = "light";
             }
             
-            localStorage.RBS_GUI_Remake = JSON.stringify(settings);
+            saveSettings();
         }
     }, {
         name: "Controls",
@@ -61,7 +61,7 @@ export const commands = [
                 settings.autoRestart = false;
             }
 
-            localStorage.RBS_GUI_Remake = JSON.stringify(settings);
+            saveSettings();
         }
     }, {
         name: "Main Menu",
