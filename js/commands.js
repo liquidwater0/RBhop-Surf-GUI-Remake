@@ -64,6 +64,12 @@ const commands = [
 
             localStorage.RBS_GUI_Remake = JSON.stringify(settings);
         }
+    }, {
+        name: "Main Menu",
+        description: "Open the main menu.",
+        aliases: ["menu"],
+        arguments: null,
+        activateCommand: () => activateMenu("mainMenu", true)
     }
 ]
 
