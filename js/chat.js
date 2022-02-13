@@ -1,6 +1,6 @@
 export { chat, messageList, sendNoticeMessage, sendTimerMessage };
 
-import { commandHandler } from "./commands.js";
+import { commandHandler } from "./commandHandler.js";
 import { settings } from "./menus/settingsMenu.js";
 
 let chatClosed = false;
