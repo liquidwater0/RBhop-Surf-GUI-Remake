@@ -1,4 +1,5 @@
 export { timer, restart, paused };
+
 import { sendTimerMessage } from "./chat.js";
 import { styleElement } from "../js/menus/stylesMenu.js";
 import { yourPersonalBest } from "./playerList.js";
@@ -6,7 +7,7 @@ import { settings } from "./menus/settingsMenu.js";
 
 let paused = false;
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", event => {
     if (document.activeElement.tagName === "INPUT") return
 
     if (event.key == " ") paused = !paused;
