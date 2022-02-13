@@ -4,12 +4,12 @@ export function speed() {
     const speedElement = document.querySelector("#speed > p:first-of-type");
     const speedBar = document.getElementById("speedBar");
 
-    document.addEventListener("keydown", function(event) { 
+    document.addEventListener("keydown", event => { 
         if (document.activeElement.tagName == "INPUT") return;
         if (event.key == "w" || event.key == "W") increaseSpeed();
     });
 
-    document.addEventListener("keyup", function(event) { //thanks drumman22 for idea of keyup
+    document.addEventListener("keyup", event => { //thanks drumman22 for idea of keyup
         if (document.activeElement.tagName == "INPUT") return;
         if (event.key == "w" || event.key == "W") decreaseSpeed();
     });
