@@ -15,24 +15,24 @@ function menus() {
 
     let isOpen = false;
 
-    openMenuButtons.forEach(function(openMenuButton) {
-        openMenuButton.addEventListener("click", function(event) {
+    openMenuButtons.forEach(openMenuButton => {
+        openMenuButton.addEventListener("click", event => {
             const isSwitched = event.target.hasAttribute("data-switched");
-            
+
             isOpen = !isOpen;
 
             activateMenu(event.target.getAttribute("data-menu-open"), isSwitched ? isOpen : true);
         });
     });
 
-    closeMenuButtons.forEach(function(closeMenuButton) {
-        closeMenuButton.addEventListener("click", function(event) { 
+    closeMenuButtons.forEach(closeMenuButton => {
+        closeMenuButton.addEventListener("click", event => { 
             activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
         });
     });
 
-    menuButtons.forEach(function(menuButton) {
-        menuButton.addEventListener("click", function(event) { 
+    menuButtons.forEach(menuButton => {
+        menuButton.addEventListener("click", event => { 
             activateMenu(event.target.parentElement.parentElement.parentElement.getAttribute("data-menu"), false);
         });
     });
@@ -42,6 +42,6 @@ function activateMenu(menu, menuState) {
     const allMenus = document.querySelectorAll("[data-menu]");
     const currentMenu = document.querySelector(`[data-menu='${menu}']`);
 
-    allMenus.forEach(function(menu) { menu.classList.remove("menu-open") });
+    allMenus.forEach(menu => menu.classList.remove("menu-open"));
     menuState ? currentMenu.classList.add("menu-open") : currentMenu.classList.remove("menu-open");
 }
