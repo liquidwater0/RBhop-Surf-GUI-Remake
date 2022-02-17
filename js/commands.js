@@ -33,13 +33,8 @@ export const commands = [
         aliases: ["theme"],
         arguments: ["dark", "light"],
         activateCommand: argument => {
-            if (argument === "dark") {
-                document.documentElement.setAttribute("data-theme", "dark");
-                settings.theme = "dark";
-            } else if (argument === "light") {
-                document.documentElement.setAttribute("data-theme", "light");
-                settings.theme = "light";
-            }
+            document.documentElement.setAttribute("data-theme", argument);
+            settings.theme = argument;
             
             saveSettings();
         }
@@ -53,12 +48,16 @@ export const commands = [
         name: "Auto Restart",
         description: "Open the styles menu.",
         aliases: ["autorestart", "ar"],
-        arguments: ["on", "off"], //Make switched eventually
+        optionalArgs: true,
+        arguments: ["on", "off"],
         activateCommand: argument => {
             if (argument === "on") {
                 settings.autoRestart = true;
             } else if (argument === "off") {
                 settings.autoRestart = false;
+            } else {
+                updateAutoRestart();
+                settings.autoRestart = autoRestart;
             }
 
             saveSettings();
