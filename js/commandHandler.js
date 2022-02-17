@@ -21,10 +21,12 @@ export function commandHandler(message) {
             });
 
             if (command.arguments === null) return;
+            if (command.optionalArgs) commandObject.optionalArgs = true;
 
             command.arguments.forEach(argument => {
                 if (messageParts[1] === argument) commandObject.correctArguments = true;
             });
+
         });
 
         return commandObject;
@@ -37,8 +39,7 @@ export function commandHandler(message) {
         return;
     }
 
-    //fix invalid arguments message for optional arguments
-    if (correctCommand.arguments !== null && !checkCommand().correctArguments) {
+    if (correctCommand.arguments !== null && !checkCommand().correctArguments && !correctCommand.optionalArgs) {
         sendNoticeMessage(`Invalid arguments.`);
         return;
     }
