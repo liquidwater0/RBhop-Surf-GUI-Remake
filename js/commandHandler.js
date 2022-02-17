@@ -3,12 +3,8 @@ import { sendNoticeMessage } from "./chat.js";
 
 export function commandHandler(message) {
     const prefixes = ["!", "/"];
-
-    function checkPrefix(prefix) {
-        return message[0] == prefix;
-    }
-
-    if (!prefixes.some(checkPrefix)) return;
+    
+    if (!prefixes.some(prefix => message[0] === prefix)) return;
 
     const messageParts = message.slice(1).split(" ");
 
