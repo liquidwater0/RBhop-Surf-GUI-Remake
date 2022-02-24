@@ -7,12 +7,12 @@ import { settings } from "./menus/settingsMenu.js";
 
 let paused = false;
 
-document.addEventListener("keypress", event => {
-    if (document.activeElement.tagName === "INPUT") return
+document.addEventListener("keydown", event => {
+    if (document.activeElement.tagName === "INPUT") return;
 
-    if (event.key == " ") paused = !paused;
-    if (event.key == "r" || event.key == "R") restart();
-    if (event.key == "Enter") completeRun();
+    if (event.shiftKey && event.key === " ") paused = !paused; // idk why it won't work with Space + Shift????
+    if (event.key.toLowerCase() === "r") restart();
+    if (event.key === "Enter") completeRun();
 });
 
 const timeElement = document.querySelector("#time > p:first-of-type");
