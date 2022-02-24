@@ -21,6 +21,7 @@
     background-color: var(--theme-color);
     font-size: 23px;
     padding: 16px;
+    border-radius: 6px;
 }
 
 .showkeys .key.pressed {
