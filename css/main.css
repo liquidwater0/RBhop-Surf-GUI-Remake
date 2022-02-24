@@ -2,6 +2,7 @@
 @import url(chat.css);
 @import url(timer.css);
 @import url(menus.css);
+@import url(showkeys.css);
 
 html[data-theme="dark"] {
     --theme-color: rgb(55, 55, 55);
