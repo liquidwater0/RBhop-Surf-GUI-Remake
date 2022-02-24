@@ -68,5 +68,14 @@ export const commands = [
         aliases: ["menu"],
         arguments: null,
         activateCommand: () => activateMenu("mainMenu", true)
+    }, {
+        name: "Showkeys",
+        description: "Open showkeys.",
+        aliases: ["showkeys"],
+        arguments: null,
+        activateCommand: () => {
+            const showkeys = document.querySelector(".showkeys");
+            showkeys.classList.toggle("active", showkeys.classList.active);
+        }
     }
 ]
