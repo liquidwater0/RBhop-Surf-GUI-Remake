@@ -38,10 +38,15 @@ function menus() {
     });
 }
 
-function activateMenu(menu, menuState) {
+function activateMenu(menu, openMenu) {
     const allMenus = document.querySelectorAll("[data-menu]");
     const currentMenu = document.querySelector(`[data-menu='${menu}']`);
 
     allMenus.forEach(menu => menu.classList.remove("menu-open"));
-    menuState ? currentMenu.classList.add("menu-open") : currentMenu.classList.remove("menu-open");
+
+    if (openMenu) {
+        currentMenu.classList.add("menu-open")
+    } else {
+        currentMenu.classList.remove("menu-open")
+    }
 }
