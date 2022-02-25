@@ -6,12 +6,12 @@ export function speed() {
 
     document.addEventListener("keydown", event => { 
         if (document.activeElement.tagName == "INPUT") return;
-        if (event.key == "w" || event.key == "W") increaseSpeed();
+        if (event.key.toLowerCase() == "w") increaseSpeed();
     });
 
     document.addEventListener("keyup", event => { //thanks drumman22 for idea of keyup
         if (document.activeElement.tagName == "INPUT") return;
-        if (event.key == "w" || event.key == "W") decreaseSpeed();
+        if (event.key.toLowerCase() == "w") decreaseSpeed();
     });
 
     let speed = 0;
