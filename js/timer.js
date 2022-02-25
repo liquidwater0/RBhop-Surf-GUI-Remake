@@ -35,31 +35,27 @@ function convertFromMS(number) {
     }
 }
 
-function timer() {
-    updateTimer();
+function timer() { //thanks Cool Doggo#3733
+    sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
+    time = new Date();
 
-    function updateTimer() { //thanks Cool Doggo#3733
-        sinceStarted = paused ? sinceStarted : sinceStarted += new Date() - time;
-        time = new Date();
+    timeConverted = convertFromMS(sinceStarted);
+    personalBestConverted = convertFromMS(personalBest);
 
-        timeConverted = convertFromMS(sinceStarted);
-        personalBestConverted = convertFromMS(personalBest);
+    if (sinceStarted > personalBest && personalBest != null && personalBest != 0 && settings.autoRestart == true) restart();
+    
+    timeElement.textContent = `Time: ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
+    personalBestElement.textContent = 
+        personalBest == null || personalBest == 0 ?
+        `Record: None` :
+        `Record: ${personalBestConverted.minutes}:${personalBestConverted.seconds}.${personalBestConverted.milliseconds}`;
+    
+    const timePercentage = `${(sinceStarted / personalBest).toFixed(2) * 100}%`;
+    
+    timerProgressBar.style.width = timePercentage;
+    timerProgressBar.style.backgroundColor = (sinceStarted > personalBest) ? "red" : "rgb(0, 255, 0)";
 
-        if (sinceStarted > personalBest && personalBest != null && personalBest != 0 && settings.autoRestart == true) restart();
-        
-        timeElement.textContent = `Time: ${timeConverted.minutes}:${timeConverted.seconds}.${timeConverted.milliseconds}`;
-        personalBestElement.textContent = 
-            personalBest == null || personalBest == 0 ?
-            `Record: None` :
-            `Record: ${personalBestConverted.minutes}:${personalBestConverted.seconds}.${personalBestConverted.milliseconds}`;
-        
-        const timePercentage = `${(sinceStarted / personalBest).toFixed(2) * 100}%`;
-        
-        timerProgressBar.style.width = timePercentage;
-        timerProgressBar.style.backgroundColor = (sinceStarted > personalBest) ? "red" : "rgb(0, 255, 0)";
-
-        window.requestAnimationFrame(updateTimer);
-    }
+    window.requestAnimationFrame(timer);
 }
 
 function restart() { 
