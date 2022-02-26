@@ -75,7 +75,7 @@ export const commands = [
         arguments: null,
         activateCommand: () => {
             const showkeys = document.querySelector(".showkeys");
-            showkeys.classList.toggle("active", showkeys.classList.active);
+            showkeys.classList.toggle("active");
         }
     }
 ]
