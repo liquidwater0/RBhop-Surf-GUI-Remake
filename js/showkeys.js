@@ -1,4 +1,6 @@
 const keys = document.querySelectorAll(".showkeys [data-key]");
+const mouseDirectionLeft = document.querySelector(".showkeys [data-direction='left']");
+const mouseDirectionRight = document.querySelector(".showkeys [data-direction='right']");
 
 export function showkeys() {
     document.addEventListener("keydown", event => {
@@ -18,5 +20,17 @@ export function showkeys() {
             
             if (event.key === keyAttribute) key.classList.remove("pressed");
         });
+    });
+
+    document.addEventListener("mousemove", event => {
+        if (document.activeElement.tagName == "INPUT") return;
+        
+        if (event.movementX < 0) {
+            mouseDirectionLeft.classList.add("pressed");
+            mouseDirectionRight.classList.remove("pressed");
+        } else if (event.movementX > 0) {
+            mouseDirectionLeft.classList.remove("pressed");
+            mouseDirectionRight.classList.add("pressed");
+        }
     });
 }
