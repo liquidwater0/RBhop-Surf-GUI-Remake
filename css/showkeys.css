@@ -1,17 +1,31 @@
 .showkeys {
+    --key-gap: 10px;
+
     position: absolute;
     right: 20px;
     bottom: 20px;
     display: none;
+    align-items: center;
+    gap: 25px;
+}
+
+.showkeys.active {
+    display: flex;
+}
+
+.showkeys .showkeys-keys {
+    display: grid;
+    gap: var(--key-gap);
     grid-template-areas: 
         "... w ..."
         "a s d"
         "jump jump jump";
-    gap: 10px;
 }
 
-.showkeys.active {
-    display: grid;
+.showkeys .showkeys-mouse-directions {
+    display: flex;
+    gap: var(--key-gap);
+    height: 75px;
 }
 
 .showkeys .key {
