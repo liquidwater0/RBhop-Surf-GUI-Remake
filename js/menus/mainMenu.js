@@ -1,9 +1,9 @@
 import { activateMenu } from "../menus.js";
-import { restart } from "../timer.js";
+import { timer } from "../timer.js";
 
 export function mainMenu() {
     const restartButton = document.querySelector("[data-action='restart']");
-    restartButton.addEventListener("click", restart);
+    restartButton.addEventListener("click", () => timer.restart());
 
     let isOpen = false;
 
