@@ -1,4 +1,4 @@
-import { restart } from "./timer.js";
+import { timer } from "./timer.js";
 import { activateMenu } from "./menus.js";
 import { settings, saveSettings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
 
@@ -8,7 +8,7 @@ export const commands = [
         description: "Restart the run.",
         aliases: ["r", "restart"],
         arguments: null,
-        activateCommand: () => restart()
+        activateCommand: () => timer.restart()
     }, {
         name: "Styles",
         description: "Open the styles menu.",
