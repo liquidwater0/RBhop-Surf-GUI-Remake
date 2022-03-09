@@ -1,4 +1,4 @@
-import { paused } from "./timer.js";
+import { timerPaused } from "./timer.js";
 
 export function speed() {
     const speedElement = document.querySelector("#speed > p:first-of-type");
@@ -23,14 +23,14 @@ export function speed() {
 
     //make it so speed stops decreasing when you press W while speed is decreasing
     function increaseSpeed() {
-        if (!paused) speed++;
+        if (!timerPaused) speed++;
         updateSpeed(); 
     }
 
     //make it so requestAnimationFrame isn't called multiple times when spamming W
     function decreaseSpeed() {
         if (speed <= 0) return;
-        if (!paused) speed--;
+        if (!timerPaused) speed--;
         updateSpeed();
 
         window.requestAnimationFrame(decreaseSpeed);
