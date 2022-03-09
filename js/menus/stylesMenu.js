@@ -1,6 +1,6 @@
 export { stylesMenu, styleElement };
 
-import { restart } from "../timer.js";
+import { timer } from "../timer.js";
 import { yourStyle } from "../playerList.js";
 
 const styleButtons = document.querySelectorAll("[data-style]");
@@ -12,6 +12,6 @@ function stylesMenu() {
     function changeStyle(event) {
         styleElement.textContent = event.target.getAttribute("data-style");
         yourStyle.textContent = event.target.getAttribute("data-style");
-        restart();
+        timer.restart();
     }
 }
