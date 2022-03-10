@@ -31,20 +31,27 @@ class Timer {
         }
     }
 
+    formatTime(minutes, seconds, milliseconds) {
+        return `${minutes}:${seconds}.${milliseconds}`;
+    }
+
     run() {
         this.sinceStarted = timerPaused ? this.sinceStarted : this.sinceStarted += new Date() - this.time;
         this.time = new Date();
 
+        if (this.personalBest && this.sinceStarted > this.personalBest && settings.autoRestart == true) this.restart();
+
         this.timeConverted = this.convertFromMS(this.sinceStarted);
         this.personalBestConverted = this.convertFromMS(this.personalBest);
 
-        if (this.sinceStarted > this.personalBest && this.personalBest != null && this.personalBest != 0 && settings.autoRestart == true) this.restart();
+        const currentTime = this.formatTime(this.timeConverted.minutes, this.timeConverted.seconds, this.timeConverted.milliseconds);
+        const personalBestTime = this.formatTime(this.personalBestConverted.minutes, this.personalBestConverted.seconds, this.personalBestConverted.milliseconds);
         
-        this.currentTimeElement.textContent = `Time: ${this.timeConverted.minutes}:${this.timeConverted.seconds}.${this.timeConverted.milliseconds}`;
+        this.currentTimeElement.textContent = `Time: ${currentTime}`;
         this.personalBestElement.textContent = 
-            (this.personalBest == null || this.personalBest == 0) ?
+            !this.personalBest ?
             `Record: None` :
-            `Record: ${this.personalBestConverted.minutes}:${this.personalBestConverted.seconds}.${this.personalBestConverted.milliseconds}`;
+            `Record: ${personalBestTime}`;
         
         const timePercentage = `${(this.sinceStarted / this.personalBest).toFixed(2) * 100}%`;
         
@@ -55,17 +62,19 @@ class Timer {
     }
 
     completeRun() {
-        if (this.personalBest == null || this.sinceStarted < this.personalBest || this.personalBest == 0) {
+        if (!this.personalBest || this.sinceStarted < this.personalBest) {
+            const currentTime = this.formatTime(this.timeConverted.minutes, this.timeConverted.seconds, this.timeConverted.milliseconds);
+
             this.personalBest = this.sinceStarted;
     
-            yourPersonalBest.textContent = this.personalBest == 0 ? "None" : `${this.timeConverted.minutes}:${this.timeConverted.seconds}.${this.timeConverted.milliseconds}`;
+            yourPersonalBest.textContent = !this.personalBest ? "None" : currentTime;
     
-            if (this.personalBest != 0) {
+            if (this.personalBest) {
                 sendTimerMessage(`
                     ${settings.playerName || "Player 1"}
                     placed #1/10 in the style ${styleElement.textContent} with a time of 
-                    ${this.timeConverted.minutes}:${this.timeConverted.seconds}.${this.timeConverted.milliseconds}
-                `)
+                    ${currentTime}
+                `);
             }
         }
     
