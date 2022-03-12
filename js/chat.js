@@ -5,6 +5,7 @@ import { settings } from "./menus/settingsMenu.js";
 
 let chatClosed = false;
 
+const chatContainer = document.getElementById("chat");
 const chatBox = document.getElementById("chatBox");
 const openCloseChatButton = document.getElementById("openCloseChatButton");
 const messageList = document.querySelector("#chat ul");
@@ -39,11 +40,9 @@ function chat() {
 }
 
 function openCloseChat() {
-    const chat = document.getElementById("chat");
-
     chatClosed = !chatClosed;
     
-    chat.classList.toggle("chat-closed", chatClosed);
+    chatContainer.classList.toggle("chat-closed", chatClosed);
     openCloseChatButton.classList.toggle("rotate", chatClosed);
 }
 
