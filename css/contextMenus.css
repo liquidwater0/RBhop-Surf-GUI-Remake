@@ -1,0 +1,25 @@
+[data-context-menu] {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    font-size: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    left: calc(var(--left, 0) * 1px);
+    top: calc(var(--top, 0) * 1px);
+    z-index: 100000000000000000000000000000000;
+}
+
+[data-context-menu] ul {
+    list-style: none;
+}
+
+[data-context-menu] ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+[data-context-menu] ul li:hover {
+    background-color: var(--theme-color2);
+}
