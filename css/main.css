@@ -3,6 +3,7 @@
 @import url(timer.css);
 @import url(menus.css);
 @import url(showkeys.css);
+@import url(contextMenus.css);
 
 html[data-theme="dark"] {
     --theme-color: rgb(55, 55, 55);
