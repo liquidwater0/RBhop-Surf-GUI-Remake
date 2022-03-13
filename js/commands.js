@@ -1,6 +1,7 @@
 import { timer } from "./timer.js";
 import { activateMenu } from "./menus.js";
 import { settings, saveSettings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
+import { rockTheVote } from "./menus/mainMenu.js";
 
 export const commands = [
     {
@@ -77,5 +78,11 @@ export const commands = [
             const showkeys = document.querySelector(".showkeys");
             showkeys.classList.toggle("active");
         }
+    }, {
+        name: "Rock the vote",
+        description: "Rock the vote.",
+        aliases: ["rtv"],
+        arguments: null,
+        activateCommand: () => rockTheVote()
     }
 ]
