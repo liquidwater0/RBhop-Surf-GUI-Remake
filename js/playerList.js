@@ -15,12 +15,20 @@ const yourPersonalBest = document.querySelector("#playerList [data-your-personal
 
 document.addEventListener("keydown", event => {
     if (document.activeElement.tagName == "INPUT") return;
-    if (event.key == "`" || event.key == "~") playerListElement.classList.add("player-list-expanded");
+
+    if (event.key == "Tab") {
+        event.preventDefault();
+        playerListElement.classList.add("player-list-expanded");
+    }
 });
 
 document.addEventListener("keyup", event => {
     if (document.activeElement.tagName == "INPUT") return;
-    if (event.key == "`" || event.key == "~") playerListElement.classList.remove("player-list-expanded");
+    
+    if (event.key == "Tab") {
+        event.preventDefault();
+        playerListElement.classList.remove("player-list-expanded");
+    }
 });
 
 function playerList() {
