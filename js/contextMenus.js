@@ -36,7 +36,7 @@ class ContextMenu {
             const listItem = document.createElement("li");
 
             listItem.textContent = item.label;
-            listItem.addEventListener("click", item.context);
+            listItem.addEventListener("click", item.action);
 
             contextMenuList.appendChild(listItem);
         });
@@ -50,16 +50,16 @@ export function contextMenus() {
     new ContextMenu(document.documentElement, [
         {
             label: "Restart Run",
-            context: () => timer.restart()
+            action: () => timer.restart()
         }, {
             label: "Pause Run",
-            context: () => timer.control()
+            action: () => timer.control()
         }, {
             label: "Complete Run",
-            context: () => timer.completeRun()
+            action: () => timer.completeRun()
         }, {
             label: "Open main menu",
-            context: () => activateMenu("mainMenu", true)
+            action: () => activateMenu("mainMenu", true)
         }
     ]);
 }
