@@ -1,7 +1,4 @@
-import { timer } from "./timer.js";
-import { activateMenu } from "./menus.js";
-
-class ContextMenu {
+export default class ContextMenu {
     constructor(element, items) {
         this.items = items;
 
@@ -44,22 +41,4 @@ class ContextMenu {
         contextMenu.style.setProperty("--left", xPos);
         contextMenu.style.setProperty("--top", yPos);
     }
-}
-
-export function contextMenus() {
-    new ContextMenu(document.documentElement, [
-        {
-            label: "Restart Run",
-            action: () => timer.restart()
-        }, {
-            label: "Pause Run",
-            action: () => timer.control()
-        }, {
-            label: "Complete Run",
-            action: () => timer.completeRun()
-        }, {
-            label: "Open main menu",
-            action: () => activateMenu("mainMenu", true)
-        }
-    ]);
 }
