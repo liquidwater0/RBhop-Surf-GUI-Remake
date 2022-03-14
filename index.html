@@ -38,7 +38,7 @@
         </tr>
         <tr class="player blacklisted">
           <td>Player 2</td>
-          <td>None</td>
+          <td data-personal-best="0">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -46,7 +46,7 @@
         </tr>
         <tr class="player moderator">
           <td>Player 3</td>
-          <td>00:03.248</td>
+          <td data-personal-best="3248">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -54,7 +54,7 @@
         </tr>
         <tr class="player pending">
           <td>Player 4</td>
-          <td>00:01.810</td>
+          <td data-personal-best="1810">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -62,7 +62,7 @@
         </tr>
         <tr class="player whitelisted">
           <td>Player 5</td>
-          <td>00:04.476</td>
+          <td data-personal-best="4476">None</td>
           <td>Scroll</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -70,7 +70,7 @@
         </tr>
         <tr class="player">
           <td>Player 6</td>
-          <td>00:21.001</td>
+          <td data-personal-best="21001">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -78,7 +78,7 @@
         </tr>
         <tr class="player">
           <td>Player 7</td>
-          <td>16:23.051</td>
+          <td data-personal-best="983051">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -86,7 +86,7 @@
         </tr>
         <tr class="player bot">
           <td>Player 3</td>
-          <td>00:03.248</td>
+          <td data-personal-best="3248">None</td>
           <td>Autohop</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -94,7 +94,7 @@
         </tr>
         <tr class="player bot">
           <td>Player 5</td>
-          <td>00:04.476</td>
+          <td data-personal-best="4476">None</td>
           <td>Scroll</td>
           <td>God (20)</td>
           <td>A+ (100%)</td>
@@ -111,28 +111,51 @@
 
       <div class="transparent-blur" id="messageContainer">
         <ul></ul>
-
         <input type="text" placeholder="Type your message here..." id="chatBox">
       </div>
     </div>
 
     <div id="bottomSection">
-      <div id="timer">
+      <div class="run-timer" id="timer">
         <div id="style">
           <p>Autohop</p>
         </div>
 
-        <div id="time">
-          <div id="progressBar"></div>
+        <div class="time" id="time">
+          <div class="progress-bar" id="progressBar"></div>
           <p>Time: 00:00.000</p>
           <p>Record: 00:00.000</p>
         </div>
 
-        <div id="speed">
-          <div id="speedBar"></div>
+        <div class="speed" id="speed">
+          <div class="speed-bar" id="speedBar"></div>
           <p>0.00 u/s</p>
         </div>
       </div>
+
+      <!-- Spectate Timer -->
+      <div class="run-timer" id="spectateTimer">
+        <div class="style" id="style">
+          <p>Autohop</p>
+        </div>
+
+        <div class="name" id="name">
+          <div class="bot"></div>
+          <p>Player 1</p>
+        </div>
+
+        <div class="time" id="time">
+          <div class="progress-bar" id="progressBar"></div>
+          <p>Time: 00:00.000</p>
+          <p>Record: 00:00.000</p>
+        </div>
+
+        <div class="speed" id="speed">
+          <div class="speed-bar" id="speedBar"></div>
+          <p>0.00 u/s</p>
+        </div>
+      </div>
+      <!-- End of Spectate Timer -->
 
       <div class="buttons-div">
         <button>Shop <span class="keyboard-key">P</span></button>
