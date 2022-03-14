@@ -1,4 +1,4 @@
-#timer {
+.run-timer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -9,7 +9,7 @@
     border-radius: 8px;
 }
 
-#timer > div {
+.run-timer > div {
     background-color: var(--timer-sections);
     border-radius: 10px;
     text-align: center;
@@ -18,18 +18,24 @@
     font-size: 18px;
 }
 
-#timer > div:not(:first-child, :last-child) {
-    text-align: left;
+.run-timer .name {
+    position: relative;
 }
 
-#timer #time {
+.run-timer .name .bot {
+    position: absolute;
+    visibility: hidden;
+}
+
+.run-timer .time {
     position: relative;
+    text-align: left;
     font-size: 22px;
     isolation: isolate;
     overflow: hidden;
 }
 
-#timer #progressBar {
+.run-timer .progress-bar {
     position: absolute;
     content: "";
     top: 0px;
@@ -42,13 +48,13 @@
     transition: background-color 125ms;
 }
 
-#timer #speed {
+.run-timer .speed {
     position: relative;
     isolation: isolate;
     overflow: hidden;
 }
 
-#timer #speedBar {
+.run-timer .speed-bar {
     position: absolute;
     content: "";
     top: 0px;
@@ -57,4 +63,8 @@
     border-radius: 10px;
     background-color: var(--speed-bar);
     z-index: -1;
+}
+
+#spectateTimer {
+    display: none;
 }
