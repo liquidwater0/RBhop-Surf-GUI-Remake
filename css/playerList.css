@@ -82,6 +82,10 @@
     border-radius: 50px;
 }
 
+#playerList .player * {
+    pointer-events: none;
+}
+
 #playerList .player.whitelisted { --moderationStatus: white }
 #playerList .player.blacklisted { --moderationStatus: black }
 #playerList .player.moderator { --moderationStatus: purple }
