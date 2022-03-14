@@ -92,13 +92,6 @@
 #playerList .player.pending { --moderationStatus: gold }
 #playerList .player.bot::before {
     content: "B";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    font-size: 13.5px;
-    padding: 11px;
     left: 27px;
 }
 
