@@ -110,6 +110,21 @@ input[type="text"]:focus {
     backdrop-filter: blur(10px);
 }
 
+.bot::before {
+    content: "B";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    font-weight: bold;
+    padding: 11px;
+    font-size: 13.5px;
+    border-radius: 50%;
+    width: 0px !important;
+    height: 0px !important;
+}
+
 #bottomSection {
     position: absolute;
     display: flex;
