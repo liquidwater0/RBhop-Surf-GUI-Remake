@@ -1,4 +1,4 @@
-export { Timer, timer, timerPaused, formatTime };
+export { timer, timerPaused, formatTime };
 
 import { sendTimerMessage } from "./chat.js";
 import { styleElement } from "../js/menus/stylesMenu.js";
@@ -15,7 +15,7 @@ function formatTime(ms) {
     return `${minutes}:${seconds}.${milliseconds}`;
 }
 
-class Timer {
+export default class Timer {
     constructor(currentTimeElement, personalBestElement, progressBar, personalBest) {
         this.currentTimeElement = currentTimeElement;
         this.personalBestElement = personalBestElement;
