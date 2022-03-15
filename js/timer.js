@@ -83,6 +83,11 @@ class Timer {
     restart() {
         this.sinceStarted = 0;
         this.progressBar.style.width = "0%";
+        this.paused = true;
+    }
+
+    getPausedState() {
+        return this.paused;
     }
 }
 
@@ -97,7 +102,7 @@ document.addEventListener("keydown", event => {
 
     if (event.shiftKey && event.key === " ") {
         timer.control(); // idk why it won't work with Space + Shift????
-        timerPaused = !timerPaused;
+        timerPaused = timer.getPausedState();
     }
 
     if (event.key.toLowerCase() === "r") timer.restart();
