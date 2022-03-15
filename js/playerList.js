@@ -1,21 +1,24 @@
-export { playerList, yourStyle, yourPersonalBest, playerListPlayers };
+export { playerList, yourStyleTextElement, yourPersonalBestTextElement, playerListPlayers };
 
 import ContextMenu from "./contextMenus.js";
 import { settings } from "./menus/settingsMenu.js";
 import { formatTime } from "./timer.js";
 import { spectate } from "./spectate.js";
+import { activateMenu } from "./menus.js";
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+const yourPlayer = document.querySelector("#playerList [data-player]");
+
+const yourPlayerTextElement = document.querySelector("#playerList [data-your-player]");
+const yourStyleTextElement = document.querySelector("#playerList [data-your-style]");
+const yourPersonalBestTextElement = document.querySelector("#playerList [data-your-personal-best]");
+
 const playerListElement = document.getElementById("playerList");
 const playerListPlayers = document.querySelectorAll("#playerList .player:not([data-player])");
 const pingElements = document.querySelectorAll("[data-ping]");
-
-const yourPlayer = document.querySelector("#playerList [data-your-player]");
-const yourStyle = document.querySelector("#playerList [data-your-style]");
-const yourPersonalBest = document.querySelector("#playerList [data-your-personal-best]");
 
 document.addEventListener("keydown", event => {
     if (document.activeElement.tagName == "INPUT") return;
@@ -36,6 +39,13 @@ document.addEventListener("keyup", event => {
 });
 
 function playerList() {
+    new ContextMenu(yourPlayer, [
+        {
+            label: "Change Name",
+            action: () => activateMenu("nameChange", true)
+        }
+    ]);
+
     playerListPlayers.forEach(player => {
         const playerPersonalBestElement = player.children[1];
         const playerPersonalBest = Number(playerPersonalBestElement.getAttribute("data-personal-best"));
@@ -58,7 +68,7 @@ function playerList() {
         playerPersonalBestElement.textContent = hasPersonalBest ? formatTime(playerPersonalBest) : "None";
     });
 
-    yourPlayer.textContent = settings.playerName || "Player 1";
+    yourPlayerTextElement.textContent = settings.playerName || "Player 1";
     
     setInterval(update, 200);
 
