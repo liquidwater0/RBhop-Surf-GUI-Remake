@@ -2,7 +2,7 @@ export { Timer, timer, timerPaused, formatTime };
 
 import { sendTimerMessage } from "./chat.js";
 import { styleElement } from "../js/menus/stylesMenu.js";
-import { yourPersonalBest } from "./playerList.js";
+import { yourPersonalBestTextElement } from "./playerList.js";
 import { settings } from "./menus/settingsMenu.js";
 
 let timerPaused = false;
@@ -62,7 +62,7 @@ class Timer {
 
             this.personalBest = this.sinceStarted;
     
-            yourPersonalBest.textContent = !this.personalBest ? "None" : currentTime;
+            yourPersonalBestTextElement.textContent = !this.personalBest ? "None" : currentTime;
     
             if (this.personalBest) {
                 sendTimerMessage(`
