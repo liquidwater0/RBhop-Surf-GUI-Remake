@@ -1,6 +1,6 @@
 export { spectate, stopSpectating, controlSpectate, isSpectating };
 
-import { Timer } from "./timer.js";
+import Timer from "./timer.js";
 
 const yourTimerElement = document.getElementById("timer");
 const spectateTimerElement = document.getElementById("spectateTimer");
