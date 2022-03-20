@@ -2,7 +2,7 @@ import { timer } from "./timer.js";
 import { activateMenu } from "./menus.js";
 import { settings, saveSettings, updateAutoRestart, autoRestart } from "./menus/settingsMenu.js";
 import { rockTheVote } from "./menus/mainMenu.js";
-import { playerListPlayers } from "./playerList.js";
+import { playerListPlayers, getPlayerInfo } from "./playerList.js";
 import { spectate, stopSpectating, controlSpectate, isSpectating } from "./spectate.js";
 
 export const commands = [
@@ -92,20 +92,10 @@ export const commands = [
         aliases: ["spec", "spectate"],
         arguments: null,
         activateCommand: () => {
-            const playerPersonalBestElement = playerListPlayers[0].children[1];
-            const playerPersonalBest = Number(playerPersonalBestElement.getAttribute("data-personal-best"));
-
-            const firstPlayer = {
-                name: playerListPlayers[0].children[0].textContent,
-                style: playerListPlayers[0].children[2].textContent,
-                personalBest: playerPersonalBest,
-                isBot: playerListPlayers[0].classList.contains("bot")
-            };
-
             controlSpectate();
             
             if (isSpectating) {
-                spectate(firstPlayer);
+                spectate(getPlayerInfo(playerListPlayers[0]));
             } else {
                 stopSpectating();
             }
