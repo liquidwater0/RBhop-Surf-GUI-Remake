@@ -1,0 +1,20 @@
+#spectateOverlay {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 20px;
+    width: 450px;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+#spectateOverlay button {
+    background-color: transparent;
+    font-size: 40px;
+    width: 45px;
+    font-weight: normal;
+    border-radius: 8px;
+}
