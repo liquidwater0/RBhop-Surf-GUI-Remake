@@ -1,4 +1,4 @@
-export { spectateOverlay, spectateOverlayElement }
+export { spectateOverlay, spectateOverlayElement };
 
 import { spectate, stopSpectating } from "./spectate.js";
 import { playerListPlayers } from "./playerList.js";
