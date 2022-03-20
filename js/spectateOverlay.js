@@ -1,7 +1,7 @@
 export { spectateOverlay, spectateOverlayElement };
 
 import { spectate, stopSpectating } from "./spectate.js";
-import { playerListPlayers } from "./playerList.js";
+import { playerListPlayers, getPlayerInfo } from "./playerList.js";
 
 const spectateOverlayElement = document.getElementById("spectateOverlay");
 
@@ -28,15 +28,7 @@ function spectateOverlay() {
             return;
         }
 
-        const playerPersonalBestElement = playerListPlayers[currentPlayerIndex].children[1];
-        const playerPersonalBest = Number(playerPersonalBestElement.getAttribute("data-personal-best"));
-
-        player = {
-            name: playerListPlayers[currentPlayerIndex].children[0].textContent,
-            style: playerListPlayers[currentPlayerIndex].children[2].textContent,
-            personalBest: playerPersonalBest,
-            isBot: playerListPlayers[currentPlayerIndex].classList.contains("bot")
-        }
+        player = getPlayerInfo(playerListPlayers[currentPlayerIndex]);
     }
 
     function spectatePrevious() {
