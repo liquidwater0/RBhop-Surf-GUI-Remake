@@ -1,4 +1,4 @@
-export { playerList, yourStyleTextElement, yourPersonalBestTextElement, playerListPlayers };
+export { playerList, getPlayerInfo, yourStyleTextElement, yourPersonalBestTextElement, playerListPlayers };
 
 import ContextMenu from "./contextMenus.js";
 import { settings } from "./menus/settingsMenu.js";
@@ -37,6 +37,18 @@ document.addEventListener("keyup", event => {
         playerListElement.classList.remove("player-list-expanded");
     }
 });
+
+function getPlayerInfo(player) {
+    const playerPersonalBestElement = player.children[1];
+    const playerPersonalBest = Number(playerPersonalBestElement.getAttribute("data-personal-best"));
+
+    return {
+        name: player.children[0].textContent,
+        style: player.children[2].textContent,
+        personalBest: playerPersonalBest,
+        isBot: player.classList.contains("bot")
+    }
+}
 
 function playerList() {
     new ContextMenu(yourPlayer, [
