@@ -1,6 +1,7 @@
 export { spectate, stopSpectating, controlSpectate, isSpectating };
 
 import Timer from "./timer.js";
+import { spectateOverlayElement } from "./spectateOverlay.js";
 
 const yourTimerElement = document.getElementById("timer");
 const spectateTimerElement = document.getElementById("spectateTimer");
@@ -22,6 +23,7 @@ function spectate(player) {
     new Timer(spectateTimeElement, spectatePersonalBestElement, spectateProgressBarElement, player.personalBest);
 
     yourTimerElement.style.display = "none";
+    spectateOverlayElement.style.display = "flex";
     spectateTimerElement.style.display = "block";
 
     spectateStyleElement.textContent = player.style;
@@ -32,6 +34,7 @@ function stopSpectating() {
     isSpectating = false;
 
     yourTimerElement.style.display = "block";
+    spectateOverlayElement.style.display = "none";
     spectateTimerElement.style.display = "none";
 }
 
