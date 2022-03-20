@@ -93,9 +93,11 @@ export const commands = [
         arguments: null,
         activateCommand: () => {
             controlSpectate();
+
+            const firstPlayer = getPlayerInfo(playerListPlayers[0]);
             
             if (isSpectating) {
-                spectate(getPlayerInfo(playerListPlayers[0]));
+                spectate(firstPlayer);
             } else {
                 stopSpectating();
             }
