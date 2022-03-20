@@ -63,12 +63,7 @@ function playerList() {
         const playerPersonalBest = Number(playerPersonalBestElement.getAttribute("data-personal-best"));
         const hasPersonalBest = playerPersonalBest <= 0 ? false : true;
 
-        const selectedPlayer = {
-            name: player.children[0].textContent,
-            style: player.children[2].textContent,
-            personalBest: playerPersonalBest,
-            isBot: player.classList.contains("bot")
-        };
+        const selectedPlayer = getPlayerInfo(player);
 
         new ContextMenu(player, [
             {
