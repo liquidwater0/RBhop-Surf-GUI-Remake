@@ -14,8 +14,8 @@ function spectateOverlay() {
     nextPlayerButton.addEventListener("click", spectateNext);
     stopSpectatingButton.addEventListener("click", stopSpectating);
 
-    let player;
     let currentPlayerIndex = 0;
+    let player = getPlayerInfo(playerListPlayers[currentPlayerIndex]);
 
     function getPlayer() {
         if (currentPlayerIndex < 0) {
