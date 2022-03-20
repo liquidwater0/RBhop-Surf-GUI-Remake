@@ -4,6 +4,7 @@
 @import url(menus.css);
 @import url(showkeys.css);
 @import url(contextMenus.css);
+@import url(spectateOverlay.css);
 
 html[data-theme="dark"] {
     --theme-color: rgb(55, 55, 55);
@@ -70,7 +71,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--theme-color2);
+    background-color: var(--theme-color2) !important;
 }
 
 input[type="text"] {
