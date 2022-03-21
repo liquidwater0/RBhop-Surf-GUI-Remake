@@ -1,6 +1,7 @@
 export { spectate, stopSpectating, controlSpectate, isSpectating };
 
 import Timer from "./timer.js";
+import { playerListPlayers } from "./playerList.js";
 import { spectateOverlayElement } from "./spectateOverlay.js";
 
 const yourTimerElement = document.getElementById("timer");
@@ -10,6 +11,9 @@ let isSpectating = false;
 
 function spectate(player) {
     isSpectating = true;
+    
+    playerListPlayers.forEach(currentPlayer => currentPlayer.removeAttribute("data-spectating"));
+    player.element.setAttribute("data-spectating", "");
 
     const spectateTimeElement = document.querySelector("#spectateTimer #time p:nth-child(2)");
     const spectatePersonalBestElement = document.querySelector("#spectateTimer p:nth-child(3)");
