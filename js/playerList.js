@@ -46,7 +46,8 @@ function getPlayerInfo(player) {
         name: player.children[0].textContent,
         style: player.children[2].textContent,
         personalBest: playerPersonalBest,
-        isBot: player.classList.contains("bot")
+        isBot: player.classList.contains("bot"),
+        element: player
     }
 }
 
