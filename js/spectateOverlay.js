@@ -17,6 +17,13 @@ function spectateOverlay() {
     let currentPlayerIndex = 0;
     let player = getPlayerInfo(playerListPlayers[currentPlayerIndex]);
 
+    function getPlayerIndex() {
+        playerListPlayers.forEach((player, index) => {
+            const spectatedPlayer = document.querySelector("[data-spectating]");
+            if (player === spectatedPlayer) currentPlayerIndex = index;
+        });
+    }
+
     function getPlayer() {
         if (currentPlayerIndex < 0) {
             currentPlayerIndex = 0;
@@ -32,6 +39,8 @@ function spectateOverlay() {
     }
 
     function spectatePrevious() {
+        getPlayerIndex();
+
         currentPlayerIndex = currentPlayerIndex - 1;
 
         getPlayer();
@@ -39,6 +48,8 @@ function spectateOverlay() {
     }
 
     function spectateNext() {
+        getPlayerIndex();
+
         currentPlayerIndex = currentPlayerIndex + 1;
         
         getPlayer();
